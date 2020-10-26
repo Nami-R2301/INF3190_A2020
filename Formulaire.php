@@ -1,126 +1,176 @@
 <?php
-$firstName = "";
-$lastName = "";
+$prenom = "";
+$nom = "";
 $numTel = "";
 $age = "";
-$graduationYear = "";
-$programName = "";
-$info = "Additional information about you.";
+$adressePostale = "";
+$adresseCourriel = "";
+$province = "";
+$info = "Informations supplémentaire à propos de la requête/plainte.";
 $message = "";
+$log = "";
 $success = false;
 
-if (isset( $_SERVER["REQUEST_METHOD"] ) ) {
+if (isset($_SERVER["REQUEST_METHOD"])) {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        $firstName = $_POST["firstName"];
-        $lastName = $_POST["lastName"];
+        $prenom = $_POST["prenom"];
+        $nom = $_POST["nom"];
         $age = $_POST["age"];
         $numTel = $_POST["numTel"];
-        $programName = $_POST["programName"];
-        $graduationYear = $_POST["graduationYear"];
+        $adressePostale = $_POST["adressePostale"];
+        $adresseCourriel = $_POST["adresseCourriel"];
+        $province = $_POST["province"];
         $info = $_POST["info"];
+        $log = $prenom . ", " . $nom . ", " . $age . ", " . $numTel . ", " . $adressePostale . ", " . $adresseCourriel
+            . ", " . $province . ", " . $info . "\n";
 
-        if ( !empty( $firstName ) || !empty( $lastName ) || strlen( $numTel ) == 12 || !empty( $programName ) ||
-            !empty( $graduationYear ) || !empty( $age ) ) {
+
+        if (!empty($prenom) && !empty($nom) && strlen($numTel) == 12 && !empty($adresseCourriel) ||
+            !empty($age) && !empty($province) && !empty($adressePostale)) {
             $success = true;
         }
 
-        if ( $success ) {
-            $message = "SUCCESS! Request sent.\n\n";
+        if ($success) {
+            $fichier = fopen("plaintes.txt", "a");
+            fwrite($fichier, $log);
+            fclose($fichier);
+            $message = "SUCCÈS! FORMULAIRE ENVOYER. MERCI!\n\n";
         } else {
-            $message = "An error has occurred! Please try again later.\n";
+            $message = "Une erreur est survenu lors de l'envoie du formulaire. Veuillez réessayez.
+            Si le problème persiste, veuillez contactez l'administrateur du site. Merci\n";
         }
     }
-}?>
+} ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Form</title>
+    <title>Formulaire de requête/plainte</title>
     <link rel="stylesheet" id="style" href="style-formulaire.css">
 </head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Page principale</a></li>
-            <li><a href="About-us.html">À propos de nous</a></li>
-            <li><a href="Instructions.html">Comment ci-prendre</a></li>
-            <li><a href="Contact-us.html">Contactez nous</a></li>
-            <li><a href="Formulaire.php">Requêtes/Plaintes</a></li>
-            <li><a class="logo" href="https://github.com/Nami-R2301?tab=repositories">
-                    <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="logo Github" width="20px"></a></li>
-            <li><a class="logo" href="https://etudier.uqam.ca/programme?code=7617#bloc_presentation">
-                    <img src="https://events.grenadine.co/wp-content/uploads/UQAM-Logo.png"
-                         alt="logo université UQÀM" width="40px"></a></li>
-        </ul>
-    </nav>
-    <div class="main">
-        <h1>College Form</h1>
+<body id="top">
+<nav>
+    <ul class="menu">
+        <li><a href="index.html" title="Visitez la page principale pour consulter les mis à jours">Page principale</a>
+        </li>
+        <li><a href="About-us.html" title="En savoir plus sur le site et les services données">
+                À propos de nous</a></li>
+        <li><a href="Instructions.html" title="Allez vers la page qui informe comment utilisé les services">
+                Comment ci-prendre</a></li>
+        <li><a href="Contact-us.html" title="Contactez-nous en cliquant sur ce lien">Contactez nous</a></li>
+        <li><a href="Formulaire.php"
+               title="Faire une demande de remboursement ou faire une requête d'un nouveau service">
+                Requêtes/Plaintes</a></li>
+        <li><a class="logo" href="https://github.com/Nami-R2301?tab=repositories"
+               title="Cliquez ici pour consulté/contribué à la création du site web">
+                <img alt="logo Github" src="https://image.flaticon.com/icons/png/512/25/25231.png" width="20px"></a>
+        </li>
+        <li><a class="logo" href="https://etudier.uqam.ca/programme?code=7617#bloc_presentation"
+               title="Cliquez ici pour visité notre établissement de travail">
+                <img alt="logo université UQÀM"
+                     src="https://events.grenadine.co/wp-content/uploads/UQAM-Logo.png" width="40px"></a></li>
+    </ul>
+</nav>
+<div class="main">
+    <div class="left-bg"></div>
+    <div class="right-bg"></div>
+    <a href="https://www.insideselfstorage.com/sites/insideselfstorage.com/files/styles/article_featured_retina/public/Tech%20Support%20Concept.jpg?itok=VKr1Z-he"
+       title="Cliquez ici pour télécharger l'image."
+       target="_blank"> <img class="image-intro"
+                             src="https://www.insideselfstorage.com/sites/insideselfstorage.com/files/styles/article_featured_retina/public/Tech%20Support%20Concept.jpg?itok=VKr1Z-he"
+                             alt="Un logo de support technique sur un panneau tactile transparant"></a>
+    <h1 id="description">Requête(s) ou plainte(s)? </h1>
+    <div class="description">
+        <a href="https://upload.wikimedia.org/wikipedia/commons/a/a4/Idea.png"
+           title="Cliquez ici pour télécharger l'image."
+           target="_blank"> <img class="image-description"
+                                 src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Idea.png"
+                                 alt="Une lampe bleu pale qui est allumé"></a>
+        <p>D'abord, pourquoi faire des requêtes ou des plaintes? La réponse est simple, parce que
+            nous voulons continuellement poussez à devenir meilleur! Quoi de mieux que d'écouter aux remarques
+            et idées de nos clients et admirateurs! Maintenant, comment ci-faire? C'est très simple, remplissez
+            le formulaire au bas de la page avec vos informations personnels et appuyez sur le bouton vert 'submit'!
+            <br><br>Quelles sorte de requêtes et de plaintes? Les requêtes/plaintes peuvent englober tous ce qui concerne
+            la qualité du site web, transactions lors de la réparation et livraison, ainsi que les rajouts ou enlèvements
+            de certaines fonctionalités qui pourraient amélioré les services offerts aux clients. </p>
+    </div>
+    <h2 id="form">Formulaire à remplir :</h2>
+    <form action="Formulaire.php" method="POST">
+        <label for="prenom">Prénom</label>
+        <input type="text" id="prenom" name="prenom" value="<?php echo $prenom; ?>"
+               maxlength="40" minlength="2" title="Veuillez inscrire votre prénom, svp." required>
         <br>
         <br>
-        <form action="Formulaire.php" method="POST">
-            <label for ="firstName">Name</label>
-            <input type ="text" id ="firstName" name="firstName" value="<?php echo $firstName; ?>"
-                   maxlength="40"  minlength="2" required>
-            <br>
-            <br>
-            <label for ="lastName">LastName</label>
-            <input type="text" id="lastName" name="lastName" value="<?php echo $lastName; ?>"
-                   maxlength="50" minlength="2" required>
-            <br>
-            <br>
-            <label for ="age">Age</label>
-            <input type="text" id="age" name="age" value="<?php echo $age; ?>"
-                   maxlength="2" required>
-            <br>
-            <br>
-            <label for ="numTel">Phone Number</label>
-            <input type="text" id="numTel" name="numTel" value="<?php echo $numTel; ?>"
-                   placeholder="555-555-5555" pattern="([0-9]{3}-[0-9]{3}-[0-9]{4})" required>
-            <br>
-            <br>
-            <label for ="graduationYear">Graduation Year</label>
-            <input type="date" id="graduationYear" name="graduationYear" value="<?php echo $graduationYear; ?>"
-                   placeholder="2000-05-10" min="2000-01-01" max="2020-05-10" required>
-            <br>
-            <br>
-            <label for ="university">Establishments</label>
-            <select id="university"  required>
-                <option value="university" disabled>Choose an establishment</option>
-                <option value="concordia">Concordia University</option>
-                <option value="mcGill">McGill University</option>
-                <option value="uqam">UQÀM University</option>
-                <option value="ets">ETS University</option>
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" value="<?php echo $nom; ?>"
+               maxlength="50" minlength="2" title="Veuillez inscrire votre nom de famille, svp." required>
+        <br>
+        <br>
+        <label for="age">Âge</label>
+        <input type="date" id="age" name="age" value="<?php echo $age; ?>"
+               placeholder="2000-01-01" min="1920-10-24" max="2002-10-24"
+               title="Veuillez inscrire votre date de naissance. Seulement ceux 18 ans et plus
+                     peuvent envoyer un formulaire." required>
+        <br>
+        <br>
+        <label for="numTel">Numéro de téléphone</label>
+        <input type="text" id="numTel" name="numTel" value="<?php echo $numTel; ?>"
+               placeholder="555-555-5555" pattern="([0-9]{3}-[0-9]{3}-[0-9]{4})"
+               title="Veuillez inscrire votre numéro de téléphone, svp." required>
+        <br>
+        <br>
+        <label for="adressePostale">Adresse Postale</label>
+        <input type="text" id="adressePostale" name="adressePostale" value="<?php echo $adressePostale; ?>"
+               maxlength="40" minlength="10" placeholder="Exemple: 1 Place Henry, Montréal"
+               title="Veuillez inscrire votre adresse de livraison, svp." required>
+        <br>
+        <br>
+        <label for="adresseCourriel">Adresse courriel</label>
+        <input type="text" id="adresseCourriel" name="adresseCourriel" value="<?php echo $adresseCourriel; ?>"
+               maxlength="40" minlength="10" placeholder="Exemple: allo@gmail.com"
+               title="Veuillez inscrire l'adresse avec laquelle ont pourra vous contactez, svp." required>
+        <br>
+        <br>
+        <label for="province">Province
+            <select id="province" name="province" title="Veuillez sélectionner une province, svp." required>
+                <option value="" selected>Choisissez une province:</option>
+                <option value="1">Ontario</option>
+                <option value="2">Québec</option>
+                <option value="3">Colombie Britannique</option>
+                <option value="4">Ïlee-du-prince-Édouard</option>
+                <option value="5">Manitoba</option>
+                <option value="6">Nouveau-Brunswick</option>
+                <option value="7">Nouvelle-Écosse</option>
+                <option value="8">Saskatchewan</option>
+                <option value="9">Terre-Neuve-et-Labrador</option>
+                <option value="10">Nunavut</option>
             </select>
-            <br>
-            <br>
-            <label for ="programName">Program Name</label>
-            <input type="text" id="programName" name="programName" value="<?php echo $programName; ?>"
-                   maxlength="40" minlength="2" required>
-            <br>
-            <br>
-            <label for= "regularMember">Regular Member</label>
-            <input type="radio" id="regularMember" value="regularMember">
-            <br>
-            <br>
-            <label for="juniorMember">Junior Member</label>
-            <input type="radio" id="juniorMember" value="regularMember">
-            <br>
-            <br>
-            <label for="SeniorMember">Senior Member</label>
-            <input type="radio" id="SeniorMember" value="regularMember">
-            <br>
-            <br>
-            <label for ="info"></label>
-            <textarea id='info' name='info' cols='40' rows='4'><?php echo $info ?></textarea>
-            <br>
-            <br>
-            <label for="submit">Submit</label>
-            <?php echo "<input type='submit' id='submit'><br><br>" . $message?>
-        </form>
-
+        </label>
+        <br>
+        <br>
+        <label for="info"></label>
+        <textarea id='info' name='info' cols='50' rows='10'><?php echo $info ?></textarea>
+        <br>
+        <br>
+        <label for="envoyer"></label>
+        <?php echo "<input type='submit' id='envoyer'><br><br>" . $message ?>
+    </form>
+    <span>
+        Merci infiniement de votre soutien! Nous vous assurons que votre formulaire sera évalué le plus rapidement
+        possible.
+    </span>
+    <footer>
+        <ul>
+            <li><a href="#top">Revenir au début de page</a></li>
+            <li><a href="#description">Revenir à la description</a></li>
+            <li><a href="#form">Revenir au début de formulaire</a></li>
+            <li>Copyright 2020 All Rights Reserved</li>
+        </ul>
+    </footer>
+</div>
 </body>
 </html>
 
