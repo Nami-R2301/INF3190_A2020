@@ -40,7 +40,7 @@ a.logo {
 }
 
 .main {
-    position: absolute;
+    position: relative;
     z-index: 1;
     width: auto;
     margin-top: 5.5%;
