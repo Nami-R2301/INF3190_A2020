@@ -167,7 +167,7 @@ if (isset($_SERVER["REQUEST_METHOD"])) {
             <li><a href="#top">Revenir au début de page</a></li>
             <li><a href="#description">Revenir à la description</a></li>
             <li><a href="#form">Revenir au début de formulaire</a></li>
-            <li>Copyright 2020 All Rights Reserved</li>
+            <li>Copyright 2020&copy; Nami's Fix&trade; All Rights Reserved</li>
         </ul>
     </footer>
 </div>
