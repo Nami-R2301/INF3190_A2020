@@ -32,6 +32,7 @@ body {
 
 a.logo {
     float: right;
+    margin: 0 auto;
 }
 
 .menu a:hover {
@@ -91,6 +92,20 @@ h1, h2, h3, h4 {
     text-align: center;
     font-size: 140%;
     font-weight: bold;
+    font-family: "Candara Light", Cambria, serif;
+}
+
+.image-description {
+    float: right;
+    position: relative;
+    width: 40%;
+    height: 40%;
+    margin-left: 5%;
+    overflow: auto;
+}
+
+.image-description:hover {
+    opacity: 0.45;
 }
 
 .description {
@@ -114,9 +129,23 @@ h1, h2, h3, h4 {
     line-height: 150%;
 }
 
-.updates iframe {
+.updates img {
     position: relative;
     float: left;
+    width: 40%;
+    height: 40%;
+    margin: 5% 5% 5% 0;
+}
+
+.updates img:hover {
+    opacity: 0.45;
+}
+
+.covid-title {
+    position: relative;
+    width: 60%;
+    margin: 5% 15% 5% 20%;
+    text-align: left;
 }
 
 .covid-container {
@@ -133,12 +162,11 @@ h1, h2, h3, h4 {
 .covid-container img {
     position: relative;
     float: right;
-    width: 35%;
+    width: 40%;
     height: 25%;
     margin-bottom: 5%;
     margin-left: 5%;
     overflow: auto;
-    border: 2px black;
     opacity: 0.7;
 }
 
@@ -158,20 +186,11 @@ h1, h2, h3, h4 {
     font-weight: bolder;
 }
 
-iframe {
-    position: relative;
-    height: 400px;
-    width: 550px;
-    margin-bottom: 5%;
-    margin-right: 5%;
-    border: none;
-}
-
 footer {
     position: relative;
     z-index: 2;
     width: 100%;
-    margin: 0;
+    margin-top: 2.5%;
     padding: 0;
     overflow: hidden;
     background-color: #1a1a1a;
@@ -181,11 +200,12 @@ footer li {
     position: inherit;
     display: block;
     float: left;
-    padding: 1.5625% 3%;
+    padding: 1.5625% 1.5%;
     list-style-type: none;
     text-align: center;
     color: white;
     font-weight: bolder;
+    font-size: small;
 }
 
 footer a {

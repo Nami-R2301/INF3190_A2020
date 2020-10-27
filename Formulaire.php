@@ -66,38 +66,42 @@ if (isset($_SERVER["REQUEST_METHOD"])) {
                 Requêtes/Plaintes</a></li>
         <li><a class="logo" href="https://github.com/Nami-R2301?tab=repositories"
                title="Cliquez ici pour consulté/contribué à la création du site web">
-                <img alt="logo Github" src="https://image.flaticon.com/icons/png/512/25/25231.png" width="20px"></a>
-        </li>
+                <img alt="logo Github" src="https://image.flaticon.com/icons/png/512/25/25231.png" width="20px"
+                     height="16px"></a></li>
         <li><a class="logo" href="https://etudier.uqam.ca/programme?code=7617#bloc_presentation"
                title="Cliquez ici pour visité notre établissement de travail">
                 <img alt="logo université UQÀM"
-                     src="https://events.grenadine.co/wp-content/uploads/UQAM-Logo.png" width="40px"></a></li>
+                     src="https://events.grenadine.co/wp-content/uploads/UQAM-Logo.png" width="35px"></a></li>
     </ul>
 </nav>
-<div class="main">
+<section class="main">
     <div class="left-bg"></div>
     <div class="right-bg"></div>
-    <a href="https://www.insideselfstorage.com/sites/insideselfstorage.com/files/styles/article_featured_retina/public/Tech%20Support%20Concept.jpg?itok=VKr1Z-he"
+    <a href="https://pixabay.com/photos/board-chalk-marketing-idea-concept-4874863/"
        title="Cliquez ici pour télécharger l'image."
        target="_blank"> <img class="image-intro"
-                             src="https://www.insideselfstorage.com/sites/insideselfstorage.com/files/styles/article_featured_retina/public/Tech%20Support%20Concept.jpg?itok=VKr1Z-he"
-                             alt="Un logo de support technique sur un panneau tactile transparant"></a>
+                             src="https://cdn.pixabay.com/photo/2020/02/23/23/02/board-4874863_960_720.jpg"
+                             alt="Des dessins fait en craie sur un tableau noir représentant des idées."></a>
     <h1 id="description">Requête(s) ou plainte(s)? </h1>
-    <div class="description">
-        <a href="https://upload.wikimedia.org/wikipedia/commons/a/a4/Idea.png"
+    <section class="description">
+        <a href="https://pixabay.com/illustrations/retro-styled-line-art-old-fashioned-2388622/"
            title="Cliquez ici pour télécharger l'image."
            target="_blank"> <img class="image-description"
-                                 src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Idea.png"
-                                 alt="Une lampe bleu pale qui est allumé"></a>
+                                 src="https://cdn.pixabay.com/photo/2017/06/09/23/42/retro-styled-2388622_960_720.png"
+                                 alt="Une main qui tien une lampe allumé, celle-ci entouré d'une bordure noir"></a>
         <p>D'abord, pourquoi faire des requêtes ou des plaintes? La réponse est simple, parce que
             nous voulons continuellement poussez à devenir meilleur! Quoi de mieux que d'écouter aux remarques
             et idées de nos clients et admirateurs! Maintenant, comment ci-faire? C'est très simple, remplissez
             le formulaire au bas de la page avec vos informations personnels et appuyez sur le bouton vert 'submit'!
-            <br><br>Quelles sorte de requêtes et de plaintes? Les requêtes/plaintes peuvent englober tous ce qui concerne
-            la qualité du site web, transactions lors de la réparation et livraison, ainsi que les rajouts ou enlèvements
+            <br><br>Quelles sorte de requêtes et de plaintes? Les requêtes/plaintes peuvent englober tous ce qui
+            concerne
+            la qualité du site web, transactions lors de la réparation et livraison, ainsi que les rajouts ou
+            enlèvements
             de certaines fonctionalités qui pourraient amélioré les services offerts aux clients. </p>
-    </div>
-    <h2 id="form">Formulaire à remplir :</h2>
+    </section>
+    <a href="https://cdn.pixabay.com/photo/2016/08/26/15/54/checklist-1622517_960_720.png"
+       title="Cliquez ici pour télécharger l'image." target="_blank"> </a>
+    <h2 id="form" class="form-titre">Formulaire à remplir :</h2>
     <form action="Formulaire.php" method="POST">
         <label for="prenom">Prénom</label>
         <input type="text" id="prenom" name="prenom" value="<?php echo $prenom; ?>"
@@ -162,15 +166,15 @@ if (isset($_SERVER["REQUEST_METHOD"])) {
         Merci infiniement de votre soutien! Nous vous assurons que votre formulaire sera évalué le plus rapidement
         possible.
     </span>
-    <footer>
-        <ul>
-            <li><a href="#top">Revenir au début de page</a></li>
-            <li><a href="#description">Revenir à la description</a></li>
-            <li><a href="#form">Revenir au début de formulaire</a></li>
-            <li>Copyright 2020&copy; Nami's Fix&trade; All Rights Reserved</li>
-        </ul>
-    </footer>
-</div>
+</section>
+<footer>
+    <ul>
+        <li><a href="#top">Revenir au début de page</a></li>
+        <li><a href="#description">Revenir à la description</a></li>
+        <li><a href="#form">Revenir au début de formulaire</a></li>
+        <li>Copyright 2020&copy; Nami's Fix&trade; All Rights Reserved</li>
+    </ul>
+</footer>
 </body>
 </html>
 

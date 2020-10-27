@@ -40,7 +40,6 @@ a.logo {
 }
 
 .main {
-    position: absolute;
     z-index: 1;
     width: auto;
     margin-top: 5.5%;
@@ -91,6 +90,7 @@ h1, h2, h3, h4 {
     text-align: center;
     font-size: 140%;
     font-weight: bold;
+    font-family: "Candara Light", Cambria, serif;
 }
 
 .description {
@@ -103,7 +103,14 @@ h1, h2, h3, h4 {
     line-height: 150%;
 }
 
-.updates {
+iframe {
+    position: relative;
+    width: auto;
+    margin: 5%;
+    overflow: auto;
+}
+
+.faq {
     position: relative;
     width: 60%;
     height: auto;
@@ -114,36 +121,43 @@ h1, h2, h3, h4 {
     line-height: 150%;
 }
 
-.updates iframe {
-    position: relative;
-    float: left;
+.faq h2 {
+    letter-spacing: 5px;
+    font-style: oblique;
+    text-align: center;
 }
 
-.covid-container {
+.faq li {
+    margin: 2% 0;
+}
+
+.faq-questions {
+    font-weight: bold;
+}
+
+.faq-reponse {
+    font-style: italic;
+}
+
+.format-courriel {
     position: relative;
     width: 60%;
     margin-left: 20%;
-    margin-bottom: 5%;
-    overflow: auto;
     text-align: left;
     font-size: 115%;
     line-height: 150%;
 }
 
-.covid-container img {
-    position: relative;
-    float: right;
-    width: 35%;
-    height: 25%;
-    margin-bottom: 5%;
-    margin-left: 5%;
-    overflow: auto;
-    border: 2px black;
-    opacity: 0.7;
+.format-courriel li {
+    margin: 2% 0;
 }
 
-.covid-container img:hover {
-    opacity: 0.45;
+span {
+    margin: 5% 0;
+}
+
+.format-courriel a {
+    margin: 0 5%;
 }
 
 .lien-textuel {
@@ -167,11 +181,11 @@ iframe {
     border: none;
 }
 
-/*footer {
+footer {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     width: 100%;
-    margin: 0;
+    margin-top: 2.5%;
     padding: 0;
     overflow: hidden;
     background-color: #1a1a1a;
@@ -181,14 +195,14 @@ footer li {
     position: inherit;
     display: block;
     float: left;
-    padding: 1.5625% 3%;
+    padding: 1.5625% 1.5%;
     list-style-type: none;
     text-align: center;
     color: white;
     font-weight: bolder;
+    font-size: small;
 }
 
 footer a {
     color: white;
 }
- */
