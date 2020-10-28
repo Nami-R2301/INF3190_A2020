@@ -79,7 +79,7 @@ a.logo {
     opacity: 0.7;
 }
 
-.image-intro:hover {
+img:hover {
     opacity: 0.45;
 }
 
@@ -93,18 +93,6 @@ h1, h2, h3, h4 {
     font-family: "Candara Light", Cambria, serif;
 }
 
-.image-description {
-    float: right;
-    position: relative;
-    width: 15%;
-    margin: -2% 10% 5% 5%;
-    overflow: hidden;
-}
-
-.image-description:hover {
-    opacity: 0.45;
-}
-
 .description {
     position: relative;
     max-width: 70%;
@@ -116,6 +104,14 @@ h1, h2, h3, h4 {
     line-height: 150%;
 }
 
+.image-description-right {
+    float: right;
+    position: relative;
+    width: 15%;
+    margin: -2% 10% 5% 5%;
+    overflow: hidden;
+}
+
 .form-titre {
     position: relative;
     font-style: italic;
@@ -125,6 +121,8 @@ form {
     position: relative;
     margin-left: 30%;
     text-align: inherit;
+    font-weight: initial;
+    letter-spacing: 1px;
 }
 
 form img {
@@ -193,9 +191,17 @@ span {
     font-size: 115%;
 }
 
+.remerciements {
+    width: 60%;
+    margin: 5% 0 5% 20%;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+
 footer {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     bottom: 0;
     left: 0;
     width: 100%;

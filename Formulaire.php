@@ -54,12 +54,12 @@ if (isset($_SERVER["REQUEST_METHOD"])) {
 <body id="top">
 <nav>
     <ul class="menu">
-        <li><a href="index.html" title="Visitez la page principale pour consulter les mis à jours">Page principale</a>
+        <li><a href="Index.html" title="Visitez la page principale pour consulter les mis à jours">Page principale</a>
         </li>
         <li><a href="About-us.html" title="En savoir plus sur le site et les services données">
                 À propos de nous</a></li>
-        <li><a href="Instructions.html" title="Allez vers la page qui informe comment utilisé les services">
-                Comment ci-prendre</a></li>
+        <li><a href="Processus-de-reparation.html" title="Allez vers la page qui informe comment utilisé les services">
+                Processus de réparation</a></li>
         <li><a href="Contact-us.html" title="Contactez-nous en cliquant sur ce lien">Contactez nous</a></li>
         <li><a href="Formulaire.php"
                title="Faire une demande de remboursement ou faire une requête d'un nouveau service">
@@ -86,7 +86,7 @@ if (isset($_SERVER["REQUEST_METHOD"])) {
     <section class="description">
         <a href="https://pixabay.com/illustrations/retro-styled-line-art-old-fashioned-2388622/"
            title="Cliquez ici pour télécharger l'image."
-           target="_blank"> <img class="image-description"
+           target="_blank"> <img class="image-description-right"
                                  src="https://cdn.pixabay.com/photo/2017/06/09/23/42/retro-styled-2388622_960_720.png"
                                  alt="Une main qui tien une lampe allumé, celle-ci entouré d'une bordure noir"></a>
         <p>D'abord, pourquoi faire des requêtes ou des plaintes? La réponse est simple, parce que
@@ -162,10 +162,10 @@ if (isset($_SERVER["REQUEST_METHOD"])) {
         <label for="envoyer"></label>
         <?php echo "<input type='submit' id='envoyer'><br><br>" . $message ?>
     </form>
-    <span>
+    <p class="remerciements">
         Merci infiniement de votre soutien! Nous vous assurons que votre formulaire sera évalué le plus rapidement
         possible.
-    </span>
+    </p>
 </section>
 <footer>
     <ul>

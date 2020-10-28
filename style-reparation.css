@@ -96,19 +96,15 @@ h1, h2, h3, h4 {
     font-family: "Candara Light", Cambria, serif;
 }
 
-h2 {
-    margin: 8% 0 0 20%;
-    text-align: left;
-}
-
 h3 {
-    margin: 8% 0 5% 20%;
+    margin: 8% 0 3% 20%;
     text-align: left;
 }
 
-.description {
+.equipementSupporte {
     position: relative;
     max-width: 60%;
+    height: auto;
     margin-left: 20%;
     text-align: left;
     font-size: 115%;
@@ -116,75 +112,19 @@ h3 {
     line-height: 150%;
 }
 
-.image-description-right {
+.equipementSupporte li {
+    width: 100%;
+    margin: 2% 0 5% -12%;
+    font-size: 100%;
+}
+
+.image-equipementSupporte {
     float: right;
     position: relative;
-    width: 50%;
-    height: 40%;
-    margin: 0 0 5% 5%;
-    overflow: auto;
-}
-
-.image-description-middle {
-    float: left;
-    position: relative;
-    width: 50%;
-    height: auto;
-    margin: 5% 0 4% 8%;
-}
-
-.image-description-left {
-    float: left;
-    position: relative;
-    width: 50%;
-    height: auto;
-    margin: 5% 0 5% 8%;
-    overflow: auto;
-}
-
-.updates {
-    position: relative;
     width: 60%;
-    height: auto;
-    margin: 2% 0 0 20%;
-    overflow: hidden;
-    text-align: left;
-    font-size: 115%;
-    line-height: 150%;
-}
-
-.updates li {
-    margin: 5% 0;
-}
-
-.updates img {
-    position: relative;
-    float: left;
-    width: 50%;
-    height: auto;
-    margin: 5% 5% 5% 0;
-}
-
-
-.covid-container {
-    position: relative;
-    width: 60%;
-    margin-left: 20%;
+    margin-right: -10%;
+    margin-left: 2%;
     margin-bottom: 5%;
-    overflow: auto;
-    text-align: left;
-    font-size: 115%;
-    line-height: 150%;
-}
-
-.covid-container img {
-    position: relative;
-    float: right;
-    width: 50%;
-    height: auto;
-    margin-bottom: 5%;
-    margin-left: 5%;
-    overflow: auto;
 }
 
 .lien-textuel {
@@ -201,8 +141,13 @@ h3 {
 
 .tarif-paiement {
     position: relative;
-    margin: 25% 0;
-    overflow-x: auto;
+    margin: 8% 15%;
+    overflow-x: hidden;
+}
+
+.tarif-paiement h2 {
+    margin: 2% 0 0 20%;
+    text-align: left;
 }
 
 table, th, td {
@@ -213,9 +158,9 @@ table, th, td {
 }
 
 table {
-    width: 60%;
+    width: 80%;
     height: auto;
-    margin: 5% 0 5% 20%;
+    margin: 5% 0 0 10%;
     border-collapse: collapse;
 }
 
@@ -235,6 +180,26 @@ td {
     line-height: 150%;
 }
 
+.notice-tarifs {
+    width: 60%;
+    margin-left: 20%;
+    font-size: smaller;
+    text-align: left;
+}
+
+.format-courriel {
+    position: relative;
+    width: 60%;
+    margin-left: 20%;
+    text-align: left;
+    font-size: 115%;
+    line-height: 150%;
+}
+
+.format-courriel li {
+    margin: 2% 0;
+}
+
 .remerciements {
     width: 60%;
     margin: 5% 0 5% 20%;
@@ -245,7 +210,7 @@ td {
 
 footer {
     position: relative;
-    z-index: 3;
+    z-index: 2;
     width: 100%;
     margin-top: 2.5%;
     padding: 0;
