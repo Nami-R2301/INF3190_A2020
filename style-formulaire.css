@@ -119,6 +119,7 @@ h1, h2, h3, h4 {
 
 form {
     position: relative;
+    width: 60%;
     margin-left: 30%;
     text-align: inherit;
     font-weight: initial;
@@ -147,19 +148,17 @@ input[type=text] {
     background-color: #0d0c0c;
 }
 
-input[type=date] {
-    display: inline-block;
-    width: 20%;
-    margin: 1% 1%;
-    padding: 0.3%;
-    border: 1px solid white;
-    border-radius: 5px;
-    background-color: #0d0c0c;
-    color: white;
+.erreur-champs {
+    color: orangered;
+}
+
+input[name=age] {
+    margin: 2% 0;
 }
 
 select {
-    margin: 1% 1%;
+    margin-top: 1%;
+    margin-bottom: 2%;
 }
 
 textarea {
@@ -181,6 +180,11 @@ input[type=submit] {
     color: white;
     cursor: pointer;
     box-sizing: border-box;
+}
+
+input[type=submit] {
+    position: relative;
+    width: 20%;
 }
 
 span {

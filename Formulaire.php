@@ -2,11 +2,16 @@
 $prenom = "";
 $nom = "";
 $numTel = "";
-$age = "";
 $adressePostale = "";
 $adresseCourriel = "";
 $province = "";
 $info = "Informations supplémentaire à propos de la requête/plainte.";
+$erreurprenom = "";
+$erreurnom = "";
+$erreurnumTel = "";
+$erreurAdressePostale = "";
+$erreurAdresseCourriel = "";
+$erreurProvince = "";
 $message = "";
 $log = "";
 $success = false;
@@ -15,9 +20,15 @@ if (isset($_SERVER["REQUEST_METHOD"])) {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+        if (!isset($prenom) || !isset($nom) || !isset($numTel)
+            || !isset($adressePostale) || $adresseCourriel || !isset($province) || !isset($info)) {
+            http_response_code(400);
+            exit;
+        }
+
         $prenom = $_POST["prenom"];
         $nom = $_POST["nom"];
-        $age = $_POST["age"];
+        $age = intval($_POST["age"]);
         $numTel = $_POST["numTel"];
         $adressePostale = $_POST["adressePostale"];
         $adresseCourriel = $_POST["adresseCourriel"];
@@ -27,19 +38,41 @@ if (isset($_SERVER["REQUEST_METHOD"])) {
             . ", " . $province . ", " . $info . "\n";
 
 
-        if (!empty($prenom) && !empty($nom) && strlen($numTel) == 12 && !empty($adresseCourriel) ||
-            !empty($age) && !empty($province) && !empty($adressePostale)) {
+        if (!empty($prenom) && !empty($nom) && strlen($numTel) == 12 && !empty($adressePostale) &&
+            !empty($adresseCourriel) && !empty($province)) {
             $success = true;
+        }
+
+        if (empty($prenom)) {
+            $erreurprenom = "\tLe champs 'prenom' est OBLIGATOIRE!";
+        }
+
+        if (empty($nom)) {
+            $erreurnom = "\tLe champs 'nom' est OBLIGATOIRE!";
+        }
+
+        if (empty($numTel)) {
+            $erreurnumTel = "\tLe champs 'Numéro de Téléphone' est OBLIGATOIRE!";
+        }
+
+        if (empty($adressePostale)) {
+            $erreurAdressePostale = "\tLe champs 'Adresse postale' est OBLIGATOIRE!";
+        }
+
+        if (empty($adresseCourriel)) {
+            $erreurAdresseCourriel = "\tLe champs 'Adresse courriel' est OBLIGATOIRE!";
+        }
+
+        if (empty($province)) {
+            $erreurProvince = "\tLa sélection d'une province est OBLIGATOIRE!";
         }
 
         if ($success) {
             $fichier = fopen("plaintes.txt", "a");
             fwrite($fichier, $log);
             fclose($fichier);
-            $message = "SUCCÈS! FORMULAIRE ENVOYER. MERCI!\n\n";
-        } else {
-            $message = "Une erreur est survenu lors de l'envoie du formulaire. Veuillez réessayez.
-            Si le problème persiste, veuillez contactez l'administrateur du site. Merci\n";
+            header("Location: confirmation.php?nom={$nom}&prenom={$prenom}", true, 303);
+            exit;
         }
     }
 } ?>
@@ -65,10 +98,12 @@ if (isset($_SERVER["REQUEST_METHOD"])) {
                title="Faire une demande de remboursement ou faire une requête d'un nouveau service">
                 Requêtes/Plaintes</a></li>
         <li><a class="logo" href="https://github.com/Nami-R2301?tab=repositories"
+               target="_blank"
                title="Cliquez ici pour consulté/contribué à la création du site web">
-                <img alt="logo Github" src="https://image.flaticon.com/icons/png/512/25/25231.png" width="20px"
-                     height="16px"></a></li>
+                <img alt="logo Github" height="16px" src="https://image.flaticon.com/icons/png/512/25/25231.png"
+                     width="20px"></a></li>
         <li><a class="logo" href="https://etudier.uqam.ca/programme?code=7617#bloc_presentation"
+               target="_blank"
                title="Cliquez ici pour visité notre établissement de travail">
                 <img alt="logo université UQÀM"
                      src="https://events.grenadine.co/wp-content/uploads/UQAM-Logo.png" width="35px"></a></li>
@@ -104,63 +139,62 @@ if (isset($_SERVER["REQUEST_METHOD"])) {
     <h2 id="form" class="form-titre">Formulaire à remplir :</h2>
     <form action="Formulaire.php" method="POST">
         <label for="prenom">Prénom</label>
-        <input type="text" id="prenom" name="prenom" value="<?php echo $prenom; ?>"
-               maxlength="40" minlength="2" title="Veuillez inscrire votre prénom, svp." required>
-        <br>
-        <br>
+        <?php echo "<input type='text' id='prenom' name='prenom' value='$prenom'
+               maxlength='40' minlength='2' title='Veuillez inscrire votre prénom, svp'>" .
+            "<p class='erreur-champs'>$erreurprenom</p>" ?>
         <label for="nom">Nom</label>
-        <input type="text" id="nom" name="nom" value="<?php echo $nom; ?>"
-               maxlength="50" minlength="2" title="Veuillez inscrire votre nom de famille, svp." required>
-        <br>
-        <br>
+        <?php echo "<input type='text' id='nom' name='nom' value='$nom'
+               maxlength='40' minlength='2' title='Veuillez inscrire votre nom, svp'>" .
+            "<p class='erreur-champs'>$erreurnom</p>" ?>
         <label for="age">Âge</label>
-        <input type="date" id="age" name="age" value="<?php echo $age; ?>"
-               placeholder="2000-01-01" min="1920-10-24" max="2002-10-24"
-               title="Veuillez inscrire votre date de naissance. Seulement ceux 18 ans et plus
-                     peuvent envoyer un formulaire." required>
-        <br>
+        <select id='age' name='age' title='Veuillez sélectionner une province, svp.'>
+            <?php
+            for ($i = 18; $i < 101; $i++) {
+                if ($i == $age) {
+                    $selected = "selected='selected'";
+                } else {
+                    $selected = "";
+                }
+                echo "<option value='$i' $selected>$i</option>";
+            }
+            ?>
+        </select>
         <br>
         <label for="numTel">Numéro de téléphone</label>
-        <input type="text" id="numTel" name="numTel" value="<?php echo $numTel; ?>"
-               placeholder="555-555-5555" pattern="([0-9]{3}-[0-9]{3}-[0-9]{4})"
-               title="Veuillez inscrire votre numéro de téléphone, svp." required>
-        <br>
-        <br>
+        <?php echo "<input type='text' id='numTel' name='numTel' value='$numTel'
+               placeholder='555-555-5555' pattern='([0-9]{3}-[0-9]{3}-[0-9]{4})'
+               title='Veuillez inscrire votre numéro de téléphone, svp.'>" .
+            "<p class='erreur-champs'>$erreurnumTel</p>" ?>
         <label for="adressePostale">Adresse Postale</label>
-        <input type="text" id="adressePostale" name="adressePostale" value="<?php echo $adressePostale; ?>"
-               maxlength="40" minlength="10" placeholder="Exemple: 1 Place Henry, Montréal"
-               title="Veuillez inscrire votre adresse de livraison, svp." required>
-        <br>
-        <br>
+        <?php echo "<input type='text' id='adressePostale' name='adressePostale' value='$adressePostale'
+               maxlength='40' minlength='10' placeholder='Exemple: 1 Place Henry, Montréal'
+               title='Veuillez inscrire votre adresse de livraison, svp.'>" .
+            "<p class='erreur-champs'>$erreurAdressePostale</p>" ?>
         <label for="adresseCourriel">Adresse courriel</label>
-        <input type="text" id="adresseCourriel" name="adresseCourriel" value="<?php echo $adresseCourriel; ?>"
-               maxlength="40" minlength="10" placeholder="Exemple: allo@gmail.com"
-               title="Veuillez inscrire l'adresse avec laquelle ont pourra vous contactez, svp." required>
-        <br>
-        <br>
+        <?php echo "<input type='text' id='adresseCourriel' name='adresseCourriel' value='$adresseCourriel'
+               maxlength='40' minlength='10' placeholder='Exemple: allo@gmail.com'
+               title='Veuillez inscrire votre adresse courriel avec laquelle ont pourra vous contactez, svp.'>"
+            . "<p class='erreur-champs'>$erreurAdresseCourriel</p>" ?>
         <label for="province">Province
-            <select id="province" name="province" title="Veuillez sélectionner une province, svp." required>
-                <option value="" selected>Choisissez une province:</option>
-                <option value="1">Ontario</option>
-                <option value="2">Québec</option>
-                <option value="3">Colombie Britannique</option>
-                <option value="4">Ïlee-du-prince-Édouard</option>
-                <option value="5">Manitoba</option>
-                <option value="6">Nouveau-Brunswick</option>
-                <option value="7">Nouvelle-Écosse</option>
-                <option value="8">Saskatchewan</option>
-                <option value="9">Terre-Neuve-et-Labrador</option>
-                <option value="10">Nunavut</option>
-            </select>
+            <?php echo "<select id='province' name='province' title='Veuillez sélectionner une province, svp.'>
+                <option value='' selected>Choisissez une province:</option>
+                <option value='1'>Ontario</option>
+                <option value='2'>Québec</option>
+                <option value='3'>Colombie Britannique</option>
+                <option value='4'>Ïlee-du-prince-Édouard</option>
+                <option value='5'>Manitoba</option>
+                <option value='6'>Nouveau-Brunswick</option>
+                <option value='7'>Nouvelle-Écosse</option>
+                <option value='8'>Saskatchewan</option>
+                <option value='9'>Terre-Neuve-et-Labrador</option>
+                <option value='10'>Nunavut</option>
+            </select>" . "<p class='erreur-champs'>$erreurProvince</p>" ?>
         </label>
-        <br>
-        <br>
         <label for="info"></label>
         <textarea id='info' name='info' cols='50' rows='10'><?php echo $info ?></textarea>
         <br>
-        <br>
         <label for="envoyer"></label>
-        <?php echo "<input type='submit' id='envoyer'><br><br>" . $message ?>
+        <?php echo "<input type='submit' id='envoyer' value='Envoyer'><br><br>" . $message ?>
     </form>
     <p class="remerciements">
         Merci infiniement de votre soutien! Nous vous assurons que votre formulaire sera évalué le plus rapidement
@@ -172,7 +206,7 @@ if (isset($_SERVER["REQUEST_METHOD"])) {
         <li><a href="#top">Revenir au début de page</a></li>
         <li><a href="#description">Revenir à la description</a></li>
         <li><a href="#form">Revenir au début de formulaire</a></li>
-        <li>Copyright 2020&copy; Nami's Fix&trade; All Rights Reserved</li>
+        <li>&copy; Copyright 2020 Nami's Fix&trade; All Rights Reserved</li>
     </ul>
 </footer>
 </body>
