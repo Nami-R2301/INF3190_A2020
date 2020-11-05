@@ -14,8 +14,8 @@
                 À propos de nous</a></li>
         <li><a href="Processus-de-reparation.html" title="Allez vers la page qui informe comment utilisé les services">
                 Processus de réparation</a></li>
-        <li><a href="Contact-us.html" title="Contactez-nous en cliquant sur ce lien">Contactez nous</a></li>
-        <li><a href="Formulaire.php"
+        <li><a href="Contact.html" title="Contactez-nous en cliquant sur ce lien">Contactez nous</a></li>
+        <li><a href="Commande.php"
                title="Faire une demande de remboursement ou faire une requête d'un nouveau service">
                 Requêtes/Plaintes</a></li>
         <li><a class="logo" href="https://github.com/Nami-R2301?tab=repositories"

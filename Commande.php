@@ -2,6 +2,7 @@
 $prenom = "";
 $nom = "";
 $numTel = "";
+$age = "";
 $adressePostale = "";
 $adresseCourriel = "";
 $province = "";
@@ -81,22 +82,20 @@ if (isset($_SERVER["REQUEST_METHOD"])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Formulaire de requête/plainte</title>
-    <link rel="stylesheet" id="style" href="style-formulaire.css">
+    <title>Formulaire de Commande</title>
+    <link rel="stylesheet" id="style" href="style-Commande.css">
 </head>
 <body id="top">
 <nav>
     <ul class="menu">
         <li><a href="Index.html" title="Visitez la page principale pour consulter les mis à jours">Page principale</a>
         </li>
-        <li><a href="About-us.html" title="En savoir plus sur le site et les services données">
-                À propos de nous</a></li>
-        <li><a href="Processus-de-reparation.html" title="Allez vers la page qui informe comment utilisé les services">
-                Processus de réparation</a></li>
-        <li><a href="Contact-us.html" title="Contactez-nous en cliquant sur ce lien">Contactez nous</a></li>
-        <li><a href="Formulaire.php"
+        <li><a href="Informations.html" title="Allez vers la page qui informe comment utilisé les services">
+                Informations</a></li>
+        <li><a href="Contact.html" title="Contactez-nous en cliquant sur ce lien">Contact</a></li>
+        <li><a href="Commande.php"
                title="Faire une demande de remboursement ou faire une requête d'un nouveau service">
-                Requêtes/Plaintes</a></li>
+                Commande</a></li>
         <li><a class="logo" href="https://github.com/Nami-R2301?tab=repositories"
                target="_blank"
                title="Cliquez ici pour consulté/contribué à la création du site web">
@@ -137,7 +136,7 @@ if (isset($_SERVER["REQUEST_METHOD"])) {
     <a href="https://cdn.pixabay.com/photo/2016/08/26/15/54/checklist-1622517_960_720.png"
        title="Cliquez ici pour télécharger l'image." target="_blank"> </a>
     <h2 id="form" class="form-titre">Formulaire à remplir :</h2>
-    <form action="Formulaire.php" method="POST">
+    <form action="Commande.php" method="POST">
         <label for="prenom">Prénom</label>
         <?php echo "<input type='text' id='prenom' name='prenom' value='$prenom'
                maxlength='40' minlength='2' title='Veuillez inscrire votre prénom, svp'>" .
