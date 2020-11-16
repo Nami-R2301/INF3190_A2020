@@ -69,6 +69,7 @@ a.logo {
 }
 
 .image-intro {
+    z-index: 2;
     position: relative;
     min-width: 10%;
     width: 50%;
@@ -120,7 +121,7 @@ h1, h2, h3, h4 {
 form {
     position: relative;
     width: 60%;
-    margin-left: 30%;
+    margin-left: 20%;
     text-align: inherit;
     font-weight: initial;
     letter-spacing: 1px;
@@ -139,7 +140,7 @@ form img {
 input[type=text] {
     display: inline-block;
     width: 20%;
-    margin: 1% 1%;
+    margin: 2% 1%;
     padding: 0.3%;
     text-align: left;
     border: 1px solid white;
@@ -149,42 +150,28 @@ input[type=text] {
 }
 
 .erreur-champs {
+    position: relative;
+    height: auto;
+    margin: 0 5% 0 0;
+    font-size: 80%;
     color: orangered;
 }
 
-input[name=age] {
-    margin: 2% 0;
-}
-
 select {
-    margin-top: 1%;
-    margin-bottom: 2%;
+    margin: 2% 1%;
 }
-
-textarea {
-    position: inherit;
-    margin: 1% 0;
-    color: white;
-    border: 1px solid white;
-    background-color: #0d0c0c;
-}
-
 
 input[type=submit] {
-    width: 10%;
-    margin: 1%;
+    width: 15%;
+    margin: 5% 0 2% 45%;
     padding: 1%;
     border: none;
     border-radius: 4px;
+    text-align: center;
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
     box-sizing: border-box;
-}
-
-input[type=submit] {
-    position: relative;
-    width: 20%;
 }
 
 span {
@@ -205,15 +192,15 @@ span {
 
 footer {
     position: absolute;
-    z-index: 3;
+    z-index: 5;
     width: 100%;
     margin-top: 2.5%;
     padding: 0;
-    overflow: hidden;
     background-color: #1a1a1a;
 }
 
 footer li {
+    z-index: auto;
     position: inherit;
     display: block;
     float: left;
@@ -226,5 +213,6 @@ footer li {
 }
 
 footer a {
+    z-index: auto;
     color: white;
 }

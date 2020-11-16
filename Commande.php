@@ -1,85 +1,94 @@
 <?php
-$prenom = "";
-$nom = "";
-$numTel = "";
-$age = "";
-$adressePostale = "";
-$adresseCourriel = "";
-$province = "";
-$info = "Informations supplémentaire à propos de la requête/plainte.";
-$erreurprenom = "";
-$erreurnom = "";
-$erreurnumTel = "";
-$erreurAdressePostale = "";
-$erreurAdresseCourriel = "";
-$erreurProvince = "";
+$nomParent = "";
+$nomEnfant = "";
+$ecoleEnfant = "";
+$ageEnfant = 0;
+$placeholder = "";
+$choixRepasLundi = "";
+$choixRepasMardi = "";
+$choixRepasMercredi = "";
+$choixRepasJeudi = "";
+$choixRepasVendredi = "";
+$erreurNomParent = "";
+$erreurNomEnfant = "";
+$erreurEcoleEnfant = "";
+$erreurRepasUn = "";
+$erreurRepasDeux = "";
+$erreurRepasTrois = "";
+$erreurRepasQuatre = "";
+$erreurRepasCinq = "";
 $message = "";
 $log = "";
 $success = false;
 
-if (isset($_SERVER["REQUEST_METHOD"])) {
+if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ( !isset( $nomParent ) || !isset( $nomEnfant ) || !isset( $ecoleEnfant ) || !isset( $ageEnfant )
+        || !isset( $choixRepasLundi ) || !isset( $choixRepasMardi ) || !isset( $choixRepasMercredi )
+        || !isset( $choixRepasJeudi ) || !isset( $choixRepasVendredi ) ) {
+        http_response_code( 400 );
+        exit;
+    }
 
-        if (!isset($prenom) || !isset($nom) || !isset($numTel)
-            || !isset($adressePostale) || $adresseCourriel || !isset($province) || !isset($info)) {
-            http_response_code(400);
-            exit;
-        }
-
-        $prenom = $_POST["prenom"];
-        $nom = $_POST["nom"];
-        $age = intval($_POST["age"]);
-        $numTel = $_POST["numTel"];
-        $adressePostale = $_POST["adressePostale"];
-        $adresseCourriel = $_POST["adresseCourriel"];
-        $province = $_POST["province"];
-        $info = $_POST["info"];
-        $log = $prenom . ", " . $nom . ", " . $age . ", " . $numTel . ", " . $adressePostale . ", " . $adresseCourriel
-            . ", " . $province . ", " . $info . "\n";
+    $nomParent = $_POST["nomParent"];
+    $nomEnfant = $_POST["nomEnfant"];
+    $ageEnfant = $_POST["ageEnfant"];
+    $ecoleEnfant = $_POST["ecoleEnfant"];
+    $choixRepasLundi = intval( $_POST["choixRepasLundi"] );
+    $choixRepasMardi = intval( $_POST["choixRepasMardi"] );
+    $choixRepasMercredi = intval( $_POST["choixRepasMercredi"] );
+    $choixRepasJeudi = intval( $_POST["choixRepasJeudi"] );
+    $choixRepasVendredi = intval( $_POST["choixRepasVendredi"] );
+    $log = $nomParent . ", " . $nomEnfant . ", " . $ageEnfant . ", " . $ecoleEnfant . ", "
+        . $choixRepasLundi . $choixRepasMardi . $choixRepasMercredi . $choixRepasJeudi .
+        $choixRepasVendredi . "\n";
 
 
-        if (!empty($prenom) && !empty($nom) && strlen($numTel) == 12 && !empty($adressePostale) &&
-            !empty($adresseCourriel) && !empty($province)) {
-            $success = true;
-        }
+    if ( !empty( $nomParent ) && !empty( $nomEnfant ) && !empty( $ecoleEnfant ) &&
+        $choixRepasLundi != 0 && $choixRepasMardi != 0 && $choixRepasMercredi != 0
+        && $choixRepasJeudi != 0 && $choixRepasVendredi != 0 ) {
+        $success = true;
+    }
 
-        if (empty($prenom)) {
-            $erreurprenom = "\tLe champs 'prenom' est OBLIGATOIRE!";
-        }
+    if ( empty( $nomParent ) || strpos( $nomParent, ',' ) !== false ) {
+        $erreurNomParent = "\tLe champs 'Nom complet du parent' est invalide! Virgules non-permises!";
+    }
 
-        if (empty($nom)) {
-            $erreurnom = "\tLe champs 'nom' est OBLIGATOIRE!";
-        }
+    if ( empty( $nomEnfant ) || strpos( $nomEnfant, ',' ) !== false ) {
+        $erreurNomEnfant = "\tLe champs 'Nom complet de l'enfant' est invalide! Virgules non-permises!";
+    }
 
-        if (empty($numTel)) {
-            $erreurnumTel = "\tLe champs 'Numéro de Téléphone' est OBLIGATOIRE!";
-        }
+    if ( empty( $ecoleEnfant ) || strpos( $ecoleEnfant, ',' ) !== false ) {
+        $erreurEcoleEnfant = "\tLe champs 'École de l'enfant' est invalide! Virgules non-permises!";
+    }
 
-        if (empty($adressePostale)) {
-            $erreurAdressePostale = "\tLe champs 'Adresse postale' est OBLIGATOIRE!";
-        }
+    if ( $choixRepasLundi == 0 ) {
+        $erreurRepasUn = "\tLa sélection d'un choix de repas est OBLIGATOIRE!";
+    }
+    if ( $choixRepasMardi == 0 ) {
+        $erreurRepasDeux = "\tLa sélection d'un choix de repas est OBLIGATOIRE!";
+    }
+    if ( $choixRepasMercredi == 0 ) {
+        $erreurRepasTrois = "\tLa sélection d'un choix de repas est OBLIGATOIRE!";
+    }
+    if ( $choixRepasJeudi == 0 ) {
+        $erreurRepasQuatre = "\tLa sélection d'un choix de repas est OBLIGATOIRE!";
+    }
+    if ( $choixRepasVendredi == 0 ) {
+        $erreurRepasCinq = "\tLa sélection d'un choix de repas est OBLIGATOIRE!";
+    }
 
-        if (empty($adresseCourriel)) {
-            $erreurAdresseCourriel = "\tLe champs 'Adresse courriel' est OBLIGATOIRE!";
-        }
-
-        if (empty($province)) {
-            $erreurProvince = "\tLa sélection d'une province est OBLIGATOIRE!";
-        }
-
-        if ($success) {
-            $fichier = fopen("plaintes.txt", "a");
-            fwrite($fichier, $log);
-            fclose($fichier);
-            header("Location: confirmation.php?nom={$nom}&prenom={$prenom}", true, 303);
-            exit;
-        }
+    if ( $success ) {
+        $fichier = fopen( "demandeRepas.txt", "a" );
+        fwrite( $fichier, $log );
+        fclose( $fichier );
+        header( "Location: confirmation.php?nomEnfant={$nomEnfant}&nomParent={$nomParent}", true, 303 );
+        exit;
     }
 } ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Formulaire de Commande</title>
@@ -111,18 +120,18 @@ if (isset($_SERVER["REQUEST_METHOD"])) {
 <section class="main">
     <div class="left-bg"></div>
     <div class="right-bg"></div>
-    <a href="https://pixabay.com/photos/board-chalk-marketing-idea-concept-4874863/"
+    <a href="https://pixabay.com/photos/menu-pizza-pasta-vegetables-eat-3206749/"
        title="Cliquez ici pour télécharger l'image."
        target="_blank"> <img class="image-intro"
-                             src="https://cdn.pixabay.com/photo/2020/02/23/23/02/board-4874863_960_720.jpg"
-                             alt="Des dessins fait en craie sur un tableau noir représentant des idées."></a>
-    <h1 id="description">Requête(s) ou plainte(s)? </h1>
+                             src="https://cdn.pixabay.com/photo/2018/03/07/18/42/menu-3206749_960_720.jpg"
+                             alt="Un bloc note avec une page brune sur le dessus avec le mot menu écrit."></a>
+    <h1 id="description">Prêt à commander le repas? </h1>
     <section class="description">
-        <a href="https://pixabay.com/illustrations/retro-styled-line-art-old-fashioned-2388622/"
+        <a href="https://pixabay.com/vectors/plate-dinner-restaurant-food-lunch-303475/"
            title="Cliquez ici pour télécharger l'image."
            target="_blank"> <img class="image-description-right"
-                                 src="https://cdn.pixabay.com/photo/2017/06/09/23/42/retro-styled-2388622_960_720.png"
-                                 alt="Une main qui tien une lampe allumé, celle-ci entouré d'une bordure noir"></a>
+                                 src="https://cdn.pixabay.com/photo/2014/04/02/10/19/plate-303475_960_720.png"
+                                 alt="Une assiette blanche vide avec des ustensiles sur les côtés."></a>
         <p>D'abord, pourquoi faire des requêtes ou des plaintes? La réponse est simple, parce que
             nous voulons continuellement poussez à devenir meilleur! Quoi de mieux que d'écouter aux remarques
             et idées de nos clients et admirateurs! Maintenant, comment ci-faire? C'est très simple, remplissez
@@ -137,63 +146,109 @@ if (isset($_SERVER["REQUEST_METHOD"])) {
        title="Cliquez ici pour télécharger l'image." target="_blank"> </a>
     <h2 id="form" class="form-titre">Formulaire à remplir :</h2>
     <form action="Commande.php" method="POST">
-        <label for="prenom">Prénom</label>
-        <?php echo "<input type='text' id='prenom' name='prenom' value='$prenom'
-               maxlength='40' minlength='2' title='Veuillez inscrire votre prénom, svp'>" .
-            "<p class='erreur-champs'>$erreurprenom</p>" ?>
-        <label for="nom">Nom</label>
-        <?php echo "<input type='text' id='nom' name='nom' value='$nom'
-               maxlength='40' minlength='2' title='Veuillez inscrire votre nom, svp'>" .
-            "<p class='erreur-champs'>$erreurnom</p>" ?>
-        <label for="age">Âge</label>
-        <select id='age' name='age' title='Veuillez sélectionner une province, svp.'>
-            <?php
-            for ($i = 18; $i < 101; $i++) {
-                if ($i == $age) {
-                    $selected = "selected='selected'";
+        <label for="nomParent">Nom complet du parent</label>
+        <?php echo "<input type='text' id='nomParent' name='nomParent' value='$nomParent' 
+                   placeholder='Ex: XXXX XXXXX' 
+                   title='Veuillez inscrire votre nom complet, svp'>" .
+            "<span class='erreur-champs'>$erreurNomParent</span>" ?>
+        <br>
+        <label for="nomEnfant">Nom complet de l'enfant</label>
+        <?php echo "<input type='text' id='nomEnfant' name='nomEnfant' value='$nomEnfant'
+                   placeholder='Ex: XXXX XXXXX' 
+                   title='Veuillez inscrire le nom complet de votre enfant, svp'>" .
+            "<span class='erreur-champs'>$erreurNomEnfant</span>" ?>
+        <br>
+        <label for="ageEnfant">Âge de l'enfant</label>
+        <select id='ageEnfant' name='ageEnfant' title='Veuillez entrez une âge, svp.'>
+            <?php echo "<option value='4' selected>Défault (4)</option>";
+            for ( $i = 4 ; $i < 13 ; $i++ ) {
+                if ( $i == $ageEnfant ) {
+                    $placeholder = "selected='selected'";
+                    echo "<option value='$i' $placeholder>$i</option>";
                 } else {
-                    $selected = "";
+                    echo "<option value='$i'>$i</option>";
                 }
-                echo "<option value='$i' $selected>$i</option>";
             }
             ?>
         </select>
         <br>
-        <label for="numTel">Numéro de téléphone</label>
-        <?php echo "<input type='text' id='numTel' name='numTel' value='$numTel'
-               placeholder='555-555-5555' pattern='([0-9]{3}-[0-9]{3}-[0-9]{4})'
-               title='Veuillez inscrire votre numéro de téléphone, svp.'>" .
-            "<p class='erreur-champs'>$erreurnumTel</p>" ?>
-        <label for="adressePostale">Adresse Postale</label>
-        <?php echo "<input type='text' id='adressePostale' name='adressePostale' value='$adressePostale'
-               maxlength='40' minlength='10' placeholder='Exemple: 1 Place Henry, Montréal'
-               title='Veuillez inscrire votre adresse de livraison, svp.'>" .
-            "<p class='erreur-champs'>$erreurAdressePostale</p>" ?>
-        <label for="adresseCourriel">Adresse courriel</label>
-        <?php echo "<input type='text' id='adresseCourriel' name='adresseCourriel' value='$adresseCourriel'
-               maxlength='40' minlength='10' placeholder='Exemple: allo@gmail.com'
-               title='Veuillez inscrire votre adresse courriel avec laquelle ont pourra vous contactez, svp.'>"
-            . "<p class='erreur-champs'>$erreurAdresseCourriel</p>" ?>
-        <label for="province">Province
-            <?php echo "<select id='province' name='province' title='Veuillez sélectionner une province, svp.'>
-                <option value='' selected>Choisissez une province:</option>
-                <option value='1'>Ontario</option>
-                <option value='2'>Québec</option>
-                <option value='3'>Colombie Britannique</option>
-                <option value='4'>Ïlee-du-prince-Édouard</option>
-                <option value='5'>Manitoba</option>
-                <option value='6'>Nouveau-Brunswick</option>
-                <option value='7'>Nouvelle-Écosse</option>
-                <option value='8'>Saskatchewan</option>
-                <option value='9'>Terre-Neuve-et-Labrador</option>
-                <option value='10'>Nunavut</option>
-            </select>" . "<p class='erreur-champs'>$erreurProvince</p>" ?>
-        </label>
-        <label for="info"></label>
-        <textarea id='info' name='info' cols='50' rows='10'><?php echo $info ?></textarea>
+        <label for="ecoleEnfant">Nom de l'école de l'enfant</label>
+        <?php echo "<input type='text' id='ecoleEnfant' name='ecoleEnfant' value='$ecoleEnfant'
+               placeholder='Ex: École De-la-Rive' title='Veuillez inscrire dans quel école votre enfant est, svp.'>" .
+            "<span class='erreur-champs'>$erreurEcoleEnfant</span>" ?>
+        <br>
+        <label for="choixRepasLundi">Choix du repas pour les lundi</label>
+        <select id='choixRepasLundi' name='choixRepasLundi' title='Veuillez sélectionner un repas, svp.'>
+            <?php echo "<option value='0' selected>Choisissez un repas:</option>";
+            for ( $i = 1 ; $i < 3 ; $i++ ) {
+                if ( $i == $choixRepasLundi ) {
+                    $placeholder = "selected='selected'";
+                    echo "<option value='$i' $placeholder>$i</option>";
+                } else {
+                    echo "<option value='$i'>$i</option>";
+                }
+            }
+            ?>
+        </select> <?php echo "<span class='erreur-champs'>$erreurRepasUn</span>"; ?>
+        <br>
+        <label for="choixRepasMardi">Choix du repas pour les mardi</label>
+        <select id='choixRepasMardi' name='choixRepasMardi' title='Veuillez sélectionner un repas, svp.'>
+            <?php echo "<option value='0' selected>Choisissez un repas:</option>";
+            for ( $i = 1 ; $i < 3 ; $i++ ) {
+                if ( $i == $choixRepasMardi ) {
+                    $placeholder = "selected='selected'";
+                    echo "<option value='$i' $placeholder>$i</option>";
+                } else {
+                    echo "<option value='$i'>$i</option>";
+                }
+            }
+            ?>
+        </select> <?php echo "<span class='erreur-champs'>$erreurRepasDeux</span>"; ?>
+        <br>
+        <label for="choixRepasMercredi">Choix du repas pour les mercredi</label>
+        <select id='choixRepasMercredi' name='choixRepasMercredi' title='Veuillez sélectionner un repas, svp.'>
+            <?php echo "<option value='0' selected>Choisissez un repas:</option>";
+            for ( $i = 1 ; $i < 3 ; $i++ ) {
+                if ( $i == $choixRepasMercredi ) {
+                    $placeholder = "selected='selected'";
+                    echo "<option value='$i' $placeholder>$i</option>";
+                } else {
+                    echo "<option value='$i'>$i</option>";
+                }
+            }
+            ?>
+        </select> <?php echo "<span class='erreur-champs'>$erreurRepasTrois</span>"; ?>
+        <br>
+        <label for="choixRepasJeudi">Choix du repas pour les jeudi</label>
+        <select id='choixRepasJeudi' name='choixRepasJeudi' title='Veuillez sélectionner un repas, svp.'>
+            <?php echo "<option value='0' selected>Choisissez un repas:</option>";
+            for ( $i = 1 ; $i < 3 ; $i++ ) {
+                if ( $i == $choixRepasJeudi ) {
+                    $placeholder = "selected='selected'";
+                    echo "<option value='$i' $placeholder>$i</option>";
+                } else {
+                    echo "<option value='$i'>$i</option>";
+                }
+            }
+            ?>
+        </select> <?php echo "<span class='erreur-champs'>$erreurRepasQuatre</span>"; ?>
+        <br>
+        <label for="choixRepasVendredi">Choix du repas pour les vendredi</label>
+        <select id='choixRepasVendredi' name='choixRepasVendredi' title='Veuillez sélectionner un repas, svp.'>
+            <?php echo "<option value='0' selected>Choisissez un repas:</option>";
+            for ( $i = 1 ; $i < 3 ; $i++ ) {
+                if ( $i == $choixRepasVendredi ) {
+                    $placeholder = "selected='selected'";
+                    echo "<option value='$i' $placeholder>$i</option>";
+                } else {
+                    echo "<option value='$i'>$i</option>";
+                }
+            }
+            ?>
+        </select> <?php echo "<span class='erreur-champs'>$erreurRepasCinq</span>"; ?>
         <br>
         <label for="envoyer"></label>
-        <?php echo "<input type='submit' id='envoyer' value='Envoyer'><br><br>" . $message ?>
+        <?php echo "<input type='submit' id='envoyer' value='Envoyer' formaction='Commande.php#form'><br><br>" . $message ?>
     </form>
     <p class="remerciements">
         Merci infiniement de votre soutien! Nous vous assurons que votre formulaire sera évalué le plus rapidement
