@@ -114,6 +114,7 @@ h1, h2, h3, h4 {
 }
 
 .form-titre {
+    margin-top: 10%;
     position: relative;
     font-style: italic;
 }
@@ -172,6 +173,12 @@ input[type=submit] {
     color: white;
     cursor: pointer;
     box-sizing: border-box;
+}
+
+.lien-textuel {
+    text-decoration: none;
+    color: red;
+    font-weight: bolder;
 }
 
 span {

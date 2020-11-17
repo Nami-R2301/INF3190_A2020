@@ -114,17 +114,8 @@ h3 {
 
 .equipementSupporte li {
     width: 100%;
-    margin: 2% 0 5% -12%;
+    margin: 2% 0 5% 0;
     font-size: 100%;
-}
-
-.image-equipementSupporte {
-    float: right;
-    position: relative;
-    width: 60%;
-    margin-right: -10%;
-    margin-left: 2%;
-    margin-bottom: 5%;
 }
 
 .lien-textuel {

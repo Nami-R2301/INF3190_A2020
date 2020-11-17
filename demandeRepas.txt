@@ -1,1 +1,2 @@
 Nami, Reghbati, 4, 438-403-7507, 21211
+Parent: Nami, Enfant: Reghbati, Age: 4, Ecole LPP, Lundi: 2Mardi: 1Mercredi: 2Jeudi: 2Vendredi: 1

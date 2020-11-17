@@ -32,8 +32,8 @@
     <div class="right-bg"></div>
     <div class="left-bg"></div>
     <h1>
-        <?php echo "Merci infiniement de votre soutien " . $_GET["nomEnfant"] . " " . $_GET["nomParent"]
-            . "!" . !"Nous vous assurons que votre formulaire sera évalué le plus rapidement
+        <?php echo "Merci infiniement de votre soutien " . $_GET["nomParent"]
+            . "!" . !"Nous vous assurons que votre commande sera évalué le plus rapidement
             possible."; ?>
     </h1>
     <p class="remerciements"> De la part de toute l'équipe de Nami's Fix, nous vous remercions chaleureusement de

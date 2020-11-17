@@ -39,9 +39,10 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     $choixRepasMercredi = intval( $_POST["choixRepasMercredi"] );
     $choixRepasJeudi = intval( $_POST["choixRepasJeudi"] );
     $choixRepasVendredi = intval( $_POST["choixRepasVendredi"] );
-    $log = $nomParent . ", " . $nomEnfant . ", " . $ageEnfant . ", " . $ecoleEnfant . ", "
-        . $choixRepasLundi . $choixRepasMardi . $choixRepasMercredi . $choixRepasJeudi .
-        $choixRepasVendredi . "\n";
+    $log = "Parent: " . $nomParent . ", " . "Enfant: " . $nomEnfant . ", " . "Age: " .
+        $ageEnfant . ", " . "Ecole " . $ecoleEnfant . ", " . "Lundi: " . $choixRepasLundi
+        . "Mardi: " . $choixRepasMardi . "Mercredi: " . $choixRepasMercredi . "Jeudi: " .
+        $choixRepasJeudi . "Vendredi: " . $choixRepasVendredi . "\n";
 
 
     if ( !empty( $nomParent ) && !empty( $nomEnfant ) && !empty( $ecoleEnfant ) &&
@@ -132,15 +133,12 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
            target="_blank"> <img class="image-description-right"
                                  src="https://cdn.pixabay.com/photo/2014/04/02/10/19/plate-303475_960_720.png"
                                  alt="Une assiette blanche vide avec des ustensiles sur les côtés."></a>
-        <p>D'abord, pourquoi faire des requêtes ou des plaintes? La réponse est simple, parce que
-            nous voulons continuellement poussez à devenir meilleur! Quoi de mieux que d'écouter aux remarques
-            et idées de nos clients et admirateurs! Maintenant, comment ci-faire? C'est très simple, remplissez
-            le formulaire au bas de la page avec vos informations personnels et appuyez sur le bouton vert 'submit'!
-            <br><br>Quelles sorte de requêtes et de plaintes? Les requêtes/plaintes peuvent englober tous ce qui
-            concerne
-            la qualité du site web, transactions lors de la réparation et livraison, ainsi que les rajouts ou
-            enlèvements
-            de certaines fonctionalités qui pourraient amélioré les services offerts aux clients. </p>
+        <p>D'abord, pourquoi faire des requêtes de repas écolier? La réponse est simple, parce que
+            nous voulons nous assurez que tous les enfants aillent des lunchs équitable et sain pour
+            les aider à mieux se concentrer en classe! Si jamais vous avez des plaintes concernant la
+            qualité de nos repas ainsi que nos habitude d'hygiène et gestion en cuisine, veuillez visiter
+            la section <a class="lien-textuel" href="Contact.html" title="Contactez nous en cliquant ce lien">
+                contact</a> de notre site web.</p>
     </section>
     <a href="https://cdn.pixabay.com/photo/2016/08/26/15/54/checklist-1622517_960_720.png"
        title="Cliquez ici pour télécharger l'image." target="_blank"> </a>
@@ -260,7 +258,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
         <li><a href="#top">Revenir au début de page</a></li>
         <li><a href="#description">Revenir à la description</a></li>
         <li><a href="#form">Revenir au début de formulaire</a></li>
-        <li>&copy; Copyright 2020 Nami's Fix&trade; All Rights Reserved</li>
+        <li>&copy; Copyright 2020 Lunch Ecolier&trade; All Rights Reserved</li>
     </ul>
 </footer>
 </body>

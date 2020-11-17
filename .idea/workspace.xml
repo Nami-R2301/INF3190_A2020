@@ -11,13 +11,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a496d34-7dd1-4751-a6d8-bd658cafd3ff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/demandeRepas.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Commande.php" beforeDir="false" afterPath="$PROJECT_DIR$/Commande.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Confirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/Confirmation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/Contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Informations.html" beforeDir="false" afterPath="$PROJECT_DIR$/Informations.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demandeRepas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/demandeRepas.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style-Commande.css" beforeDir="false" afterPath="$PROJECT_DIR$/style-Commande.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style-contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/style-contact.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style-Informations.css" beforeDir="false" afterPath="$PROJECT_DIR$/style-Informations.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style-main.css" beforeDir="false" afterPath="$PROJECT_DIR$/style-main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +49,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Commande.php" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -80,6 +83,8 @@
       <workItem from="1605194019697" duration="141000" />
       <workItem from="1605465719572" duration="8163000" />
       <workItem from="1605475705607" duration="18388000" />
+      <workItem from="1605540912321" duration="1188000" />
+      <workItem from="1605577492967" duration="3968000" />
     </task>
     <servers />
   </component>
