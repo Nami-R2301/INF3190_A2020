@@ -153,13 +153,19 @@ input[type=text] {
 .erreur-champs {
     position: relative;
     height: auto;
-    margin: 0 5% 0 0;
-    font-size: 80%;
+    margin: 2% 0;
+    font-size: 95%;
     color: orangered;
 }
 
 select {
     margin: 2% 1%;
+}
+
+.asterix {
+    position: relative;
+    margin-left: 1%;
+    color: red;
 }
 
 input[type=submit] {

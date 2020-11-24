@@ -105,13 +105,6 @@ h1, h2, h3, h4 {
     line-height: 150%;
 }
 
-iframe {
-    position: relative;
-    width: auto;
-    margin: 5%;
-    overflow: auto;
-}
-
 .faq {
     position: relative;
     width: 60%;

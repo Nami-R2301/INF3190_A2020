@@ -4,6 +4,7 @@
     <title>Demande envoyée!</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style-main.css">
+    <link rel="icon" href="favicon-32x32.png">
 </head>
 <body>
 <nav>

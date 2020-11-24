@@ -94,6 +94,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     <meta charset="UTF-8">
     <title>Formulaire de Commande</title>
     <link rel="stylesheet" id="style" href="style-Commande.css">
+    <link rel="icon" href="favicon-32x32.png">
 </head>
 <body id="top">
 <nav>
@@ -106,7 +107,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
         <li><a href="Commande.php"
                title="Faire une demande de remboursement ou faire une requête d'un nouveau service">
                 Commande</a></li>
-        <li><a class="logo" href="https://github.com/Nami-R2301?tab=repositories"
+        <li><a class="logo" href="https://github.com/Nami-R2301/INF3190_A2020"
                target="_blank"
                title="Cliquez ici pour consulté/contribué à la création du site web">
                 <img alt="logo Github" height="16px" src="https://image.flaticon.com/icons/png/512/25/25231.png"
@@ -144,17 +145,17 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
        title="Cliquez ici pour télécharger l'image." target="_blank"> </a>
     <h2 id="form" class="form-titre">Formulaire à remplir :</h2>
     <form action="Commande.php" method="POST">
+        <?php echo "<p class='erreur-champs'>$erreurNomParent</p>" ?>
         <label for="nomParent">Nom complet du parent</label>
-        <?php echo "<input type='text' id='nomParent' name='nomParent' value='$nomParent' 
+        <?php echo "<input type='text' id='nomParent' name='nomParent' value='$nomParent'
                    placeholder='Ex: XXXX XXXXX' 
-                   title='Veuillez inscrire votre nom complet, svp'>" .
-            "<span class='erreur-champs'>$erreurNomParent</span>" ?>
+                   title='Veuillez inscrire votre nom complet, svp'>" ?>
         <br>
+        <?php echo "<p class='erreur-champs'>$erreurNomEnfant</p>" ?>
         <label for="nomEnfant">Nom complet de l'enfant</label>
         <?php echo "<input type='text' id='nomEnfant' name='nomEnfant' value='$nomEnfant'
                    placeholder='Ex: XXXX XXXXX' 
-                   title='Veuillez inscrire le nom complet de votre enfant, svp'>" .
-            "<span class='erreur-champs'>$erreurNomEnfant</span>" ?>
+                   title='Veuillez inscrire le nom complet de votre enfant, svp'>" ?>
         <br>
         <label for="ageEnfant">Âge de l'enfant</label>
         <select id='ageEnfant' name='ageEnfant' title='Veuillez entrez une âge, svp.'>
@@ -170,80 +171,30 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
             ?>
         </select>
         <br>
+        <?php echo "<p class='erreur-champs'>$erreurEcoleEnfant</p>" ?>
         <label for="ecoleEnfant">Nom de l'école de l'enfant</label>
         <?php echo "<input type='text' id='ecoleEnfant' name='ecoleEnfant' value='$ecoleEnfant'
-               placeholder='Ex: École De-la-Rive' title='Veuillez inscrire dans quel école votre enfant est, svp.'>" .
-            "<span class='erreur-champs'>$erreurEcoleEnfant</span>" ?>
+               placeholder='Ex: École De-la-Rive' title='Veuillez inscrire dans quel école votre enfant est, svp.'>" ?>
         <br>
+        <?php echo "<p class='erreur-champs'>$erreurRepasUn</p>"; ?>
         <label for="choixRepasLundi">Choix du repas pour les lundi</label>
-        <select id='choixRepasLundi' name='choixRepasLundi' title='Veuillez sélectionner un repas, svp.'>
-            <?php echo "<option value='0' selected>Choisissez un repas:</option>";
-            for ( $i = 1 ; $i < 3 ; $i++ ) {
-                if ( $i == $choixRepasLundi ) {
-                    $placeholder = "selected='selected'";
-                    echo "<option value='$i' $placeholder>$i</option>";
-                } else {
-                    echo "<option value='$i'>$i</option>";
-                }
-            }
-            ?>
-        </select> <?php echo "<span class='erreur-champs'>$erreurRepasUn</span>"; ?>
+        <input type="radio" id='choixRepasLundi' name='choixRepasLundi' title='Veuillez sélectionner un repas, svp.'>
         <br>
+        <?php echo "<p class='erreur-champs'>$erreurRepasDeux</p>"; ?>
         <label for="choixRepasMardi">Choix du repas pour les mardi</label>
-        <select id='choixRepasMardi' name='choixRepasMardi' title='Veuillez sélectionner un repas, svp.'>
-            <?php echo "<option value='0' selected>Choisissez un repas:</option>";
-            for ( $i = 1 ; $i < 3 ; $i++ ) {
-                if ( $i == $choixRepasMardi ) {
-                    $placeholder = "selected='selected'";
-                    echo "<option value='$i' $placeholder>$i</option>";
-                } else {
-                    echo "<option value='$i'>$i</option>";
-                }
-            }
-            ?>
-        </select> <?php echo "<span class='erreur-champs'>$erreurRepasDeux</span>"; ?>
+        <input type="radio" id='choixRepasMardi' name='choixRepasMardi' title='Veuillez sélectionner un repas, svp.'>
         <br>
+        <?php echo "<p class='erreur-champs'>$erreurRepasTrois</p>"; ?>
         <label for="choixRepasMercredi">Choix du repas pour les mercredi</label>
-        <select id='choixRepasMercredi' name='choixRepasMercredi' title='Veuillez sélectionner un repas, svp.'>
-            <?php echo "<option value='0' selected>Choisissez un repas:</option>";
-            for ( $i = 1 ; $i < 3 ; $i++ ) {
-                if ( $i == $choixRepasMercredi ) {
-                    $placeholder = "selected='selected'";
-                    echo "<option value='$i' $placeholder>$i</option>";
-                } else {
-                    echo "<option value='$i'>$i</option>";
-                }
-            }
-            ?>
-        </select> <?php echo "<span class='erreur-champs'>$erreurRepasTrois</span>"; ?>
+        <input type="radio" id='choixRepasMercredi' name='choixRepasMercredi' title='Veuillez sélectionner un repas, svp.'>
         <br>
+        <?php echo "<p class='erreur-champs'>$erreurRepasQuatre</p>"; ?>
         <label for="choixRepasJeudi">Choix du repas pour les jeudi</label>
-        <select id='choixRepasJeudi' name='choixRepasJeudi' title='Veuillez sélectionner un repas, svp.'>
-            <?php echo "<option value='0' selected>Choisissez un repas:</option>";
-            for ( $i = 1 ; $i < 3 ; $i++ ) {
-                if ( $i == $choixRepasJeudi ) {
-                    $placeholder = "selected='selected'";
-                    echo "<option value='$i' $placeholder>$i</option>";
-                } else {
-                    echo "<option value='$i'>$i</option>";
-                }
-            }
-            ?>
-        </select> <?php echo "<span class='erreur-champs'>$erreurRepasQuatre</span>"; ?>
+        <input type="radio" id='choixRepasJeudi' name='choixRepasJeudi' title='Veuillez sélectionner un repas, svp.'>
         <br>
-        <label for="choixRepasVendredi">Choix du repas pour les vendredi</label>
-        <select id='choixRepasVendredi' name='choixRepasVendredi' title='Veuillez sélectionner un repas, svp.'>
-            <?php echo "<option value='0' selected>Choisissez un repas:</option>";
-            for ( $i = 1 ; $i < 3 ; $i++ ) {
-                if ( $i == $choixRepasVendredi ) {
-                    $placeholder = "selected='selected'";
-                    echo "<option value='$i' $placeholder>$i</option>";
-                } else {
-                    echo "<option value='$i'>$i</option>";
-                }
-            }
-            ?>
-        </select> <?php echo "<span class='erreur-champs'>$erreurRepasCinq</span>"; ?>
+        <?php echo "<p class='erreur-champs'>$erreurRepasCinq</p>"; ?>
+        <label for="choixRepasVendredi">Choix du repas pour les vendredi <span class="asterix"> * </span></label>
+        <input type="radio" id='choixRepasVendredi' name='choixRepasVendredi' title='Veuillez sélectionner un repas, svp.'>
         <br>
         <label for="envoyer"></label>
         <?php echo "<input type='submit' id='envoyer' value='Envoyer' formaction='Commande.php#form'><br><br>" . $message ?>
