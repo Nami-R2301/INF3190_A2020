@@ -232,7 +232,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
             <br><br><br> 
             <span class='titre-repasUn'>Plat numéro 1 : Spaguetti à la viande.</span>
             <span class='titre-repasDeux'>Plat numéro 2 : Lasagne.</span>
-            <br><br>
+            <br><br><br><br>
             <p class='titre-repasUn'>Ingrédients : Nouille, sauce tomate, viande haché, parmesan.</p>
             <p class='titre-repasDeux'>Ingrédients : fromage mozzarella, viande hâché (boeuf), sauce tomate.</p>
             <div class='container-radios'>
@@ -254,7 +254,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
             <br><br><br>
             <span class='titre-repasUn'>Plat numéro 1 : Sandwich au jambon.</span>
             <span class='titre-repasDeux'>Plat numéro 2 : Pizza.</span>
-            <br><br>
+            <br><br><br><br>
             <p class='titre-repasUn'>Ingrédients : jambon, fromage suisse, bacon, laitue, tomate, pain blé entier.</p> 
             <p class='titre-repasDeux'>Ingrédients : pâte, pepperoni, fromage mozzarella, sauce tomate, sel, pain.</p>
             <div class='container-radios'>
@@ -274,9 +274,10 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
         <?php
         echo "<p class='erreur-champs'>$erreurRepasTrois</p>
             <label for='choixRepasMercredi'>Choix du repas pour les mercredi<span class='asterix'> * </span></label>
-            <br><br><br> 
+            <br><br><br>
             <span class='titre-repasUn'>Plat numéro 1 : Hamburgers.</span>
             <span class='titre-repasDeux'>Plat numéro 2 : Hot-dogs.</span>
+            <br><br><br><br>
             <p class='titre-repasUn'>Ingrédients : viande hâché (boeuf), bacon, laitue, tomate, cornichons, onions caramèlisé,
              pain blé entier, frites.</p> 
             <p class='titre-repasDeux'>Ingrédients : pain brun, porc, sel.</p>
@@ -302,6 +303,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
             <br><br><br> 
             <span class='titre-repasUn'>Plat numéro 1 : Macaroni.</span>
             <span class='titre-repasDeux'>Plat numéro 2 : Poitrine de poulet.</span>
+            <br><br><br><br>
             <p class='titre-repasUn'>Ingrédients : pâte, viande hâché (boeuf), épices, sauce tomate.</p> 
             <p class='titre-repasDeux'>Ingrédients : poulet, sel, poivre, laitue, tomate, cocombres, sauce césar.</p>
             <div class='container-radios'>
@@ -326,6 +328,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
         <br><br><br> 
         <span class='titre-repasUn'>Plat numéro 1 : Poutine.</span>
         <span class='titre-repasDeux'>Plat numéro 2 : Wrap au poulet.</span>
+        <br><br><br><br>
         <p class='titre-repasUn'>Ingrédients : patate frites, sauce, fromage en grains.</p> 
             <p class='titre-repasDeux'>Ingrédients : pain pita, poulet grillé, onions, tomates, laitue, sauce tatziki.</p>
         <div class='container-radios'>
