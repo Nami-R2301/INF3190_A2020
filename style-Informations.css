@@ -149,10 +149,11 @@ table, th, td {
 }
 
 table {
-    width: 80%;
+    width: 60%;
     height: auto;
-    margin: 5% 0 0 10%;
+    margin: 5% 0 0 20%;
     border-collapse: collapse;
+    text-align: center;
 }
 
 th {

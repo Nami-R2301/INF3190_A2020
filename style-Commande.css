@@ -132,7 +132,6 @@ form img {
     float: right;
     position: relative;
     width: 40%;
-    height: 30%;
     margin: 0 5%;
     overflow: auto;
 
@@ -140,7 +139,7 @@ form img {
 
 input[type=text] {
     display: inline-block;
-    width: 20%;
+    width: 30%;
     margin: 2% 1%;
     padding: 0.3%;
     text-align: left;
@@ -191,8 +190,45 @@ span {
     position: relative;
     width: 100%;
     height: 15%;
-    margin: 5% 5% 10% 20%;
+    margin: 5% 0 10% 20%;
     font-size: 115%;
+}
+
+.titre-repasUn {
+    float: left;
+    width: 30%;
+    display: initial;
+    margin: 2% 0 1% 9%;
+    font-size: 100%;
+    text-align: center;
+}
+
+.titre-repasDeux {
+    float: right;
+    padding-right: 10%;
+    display: initial;
+    width: 30%;
+    margin: 2% 0 1% -5%;
+    font-size: 100%;
+    text-align: center;
+}
+
+input[type=radio] {
+    position: relative;
+    margin: 5% 0;
+}
+
+.container-radios {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.img-repas {
+    float: right;
+    width: 40%;
+    margin: 5% 5% 0 3%;
 }
 
 .remerciements {

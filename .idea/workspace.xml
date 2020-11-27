@@ -11,16 +11,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a496d34-7dd1-4751-a6d8-bd658cafd3ff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/favicon-32x32.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Commande.php" beforeDir="false" afterPath="$PROJECT_DIR$/Commande.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Confirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/Confirmation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/Contact.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Informations.html" beforeDir="false" afterPath="$PROJECT_DIR$/Informations.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demandeRepas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/demandeRepas.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demandeRepas.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/style-Commande.css" beforeDir="false" afterPath="$PROJECT_DIR$/style-Commande.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style-contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/style-contact.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style-Informations.css" beforeDir="false" afterPath="$PROJECT_DIR$/style-Informations.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +30,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Commande.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWebServerValidation" path_to_validation_script="C:\Users\Nami\Documents\INF3190_A2020" selected_validation_type="LOCAL" web_path_to_validation_script="http://192.168.1.92:8080" />
@@ -86,7 +87,7 @@
       <workItem from="1605540912321" duration="1188000" />
       <workItem from="1605577492967" duration="4405000" />
       <workItem from="1605662035976" duration="2930000" />
-      <workItem from="1606191935008" duration="1944000" />
+      <workItem from="1606191935008" duration="31422000" />
     </task>
     <servers />
   </component>

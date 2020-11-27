@@ -9,6 +9,16 @@ $choixRepasMardi = "";
 $choixRepasMercredi = "";
 $choixRepasJeudi = "";
 $choixRepasVendredi = "";
+$checkedUn = "";
+$checkedDeux = "";
+$checkedTrois = "";
+$checkedQuatre = "";
+$checkedCinq = "";
+$checkedSix = "";
+$checkedSept = "";
+$checkedHuit = "";
+$checkedNeuf = "";
+$checkedDix = "";
 $erreurNomParent = "";
 $erreurNomEnfant = "";
 $erreurEcoleEnfant = "";
@@ -34,20 +44,76 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     $nomEnfant = $_POST["nomEnfant"];
     $ageEnfant = $_POST["ageEnfant"];
     $ecoleEnfant = $_POST["ecoleEnfant"];
-    $choixRepasLundi = intval( $_POST["choixRepasLundi"] );
-    $choixRepasMardi = intval( $_POST["choixRepasMardi"] );
-    $choixRepasMercredi = intval( $_POST["choixRepasMercredi"] );
-    $choixRepasJeudi = intval( $_POST["choixRepasJeudi"] );
-    $choixRepasVendredi = intval( $_POST["choixRepasVendredi"] );
+
+    if ( !empty( $_POST["choixRepasLundi"] ) ) {
+        $choixRepasLundi = $_POST["choixRepasLundi"];
+
+        if ( $choixRepasLundi == "spaguetti" ) {
+            $checkedUn = "checked";
+        } else {
+            $checkedDeux = "checked";
+        }
+    } else {
+        $erreurRepasUn = "\tLa sélection d'un choix de repas est OBLIGATOIRE!";
+    }
+
+    if ( !empty( $_POST["choixRepasMardi"] ) ) {
+        $choixRepasMardi = $_POST["choixRepasMardi"];
+
+        if ( $choixRepasMardi == "pain-de-viande" ) {
+            $checkedTrois = "checked";
+        } else {
+            $checkedQuatre = "checked";
+        }
+    } else {
+        $erreurRepasDeux = "\tLa sélection d'un choix de repas est OBLIGATOIRE!";
+    }
+
+    if ( !empty( $_POST["choixRepasMercredi"] ) ) {
+        $choixRepasMercredi = $_POST["choixRepasMercredi"];
+
+        if ( $choixRepasMercredi == "hamburgers" ) {
+            $checkedCinq = "checked";
+        } else {
+            $checkedSix = "checked";
+        }
+    } else {
+        $erreurRepasTrois = "\tLa sélection d'un choix de repas est OBLIGATOIRE!";
+    }
+
+    if ( !empty( $_POST["choixRepasJeudi"] ) ) {
+        $choixRepasJeudi = $_POST["choixRepasJeudi"];
+
+        if ( $choixRepasJeudi == "macaroni" ) {
+            $checkedSept = "checked";
+        } else {
+            $checkedHuit = "checked";
+        }
+    } else {
+        $erreurRepasQuatre = "\tLa sélection d'un choix de repas est OBLIGATOIRE!";
+    }
+
+    if ( !empty( $_POST["choixRepasVendredi"] ) ) {
+        $choixRepasVendredi = $_POST["choixRepasVendredi"];
+
+        if ( $choixRepasVendredi == "poutine" ) {
+            $checkedNeuf = "checked";
+        } else {
+            $checkedDix = "checked";
+        }
+    } else {
+        $erreurRepasCinq = "\tLa sélection d'un choix de repas est OBLIGATOIRE!";
+    }
+
     $log = "Parent: " . $nomParent . ", " . "Enfant: " . $nomEnfant . ", " . "Age: " .
         $ageEnfant . ", " . "Ecole " . $ecoleEnfant . ", " . "Lundi: " . $choixRepasLundi
-        . "Mardi: " . $choixRepasMardi . "Mercredi: " . $choixRepasMercredi . "Jeudi: " .
-        $choixRepasJeudi . "Vendredi: " . $choixRepasVendredi . "\n";
+        . ", Mardi: " . $choixRepasMardi . ", Mercredi: " . $choixRepasMercredi . ", Jeudi: " .
+        $choixRepasJeudi . ", Vendredi: " . $choixRepasVendredi . ".\n";
 
 
     if ( !empty( $nomParent ) && !empty( $nomEnfant ) && !empty( $ecoleEnfant ) &&
-        $choixRepasLundi != 0 && $choixRepasMardi != 0 && $choixRepasMercredi != 0
-        && $choixRepasJeudi != 0 && $choixRepasVendredi != 0 ) {
+        !empty( $choixRepasLundi ) && !empty( $choixRepasMardi ) && !empty( $choixRepasMercredi )
+        && !empty( $choixRepasJeudi ) && !empty( $choixRepasVendredi ) ) {
         $success = true;
     }
 
@@ -61,22 +127,6 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 
     if ( empty( $ecoleEnfant ) || strpos( $ecoleEnfant, ',' ) !== false ) {
         $erreurEcoleEnfant = "\tLe champs 'École de l'enfant' est invalide! Virgules non-permises!";
-    }
-
-    if ( $choixRepasLundi == 0 ) {
-        $erreurRepasUn = "\tLa sélection d'un choix de repas est OBLIGATOIRE!";
-    }
-    if ( $choixRepasMardi == 0 ) {
-        $erreurRepasDeux = "\tLa sélection d'un choix de repas est OBLIGATOIRE!";
-    }
-    if ( $choixRepasMercredi == 0 ) {
-        $erreurRepasTrois = "\tLa sélection d'un choix de repas est OBLIGATOIRE!";
-    }
-    if ( $choixRepasJeudi == 0 ) {
-        $erreurRepasQuatre = "\tLa sélection d'un choix de repas est OBLIGATOIRE!";
-    }
-    if ( $choixRepasVendredi == 0 ) {
-        $erreurRepasCinq = "\tLa sélection d'un choix de repas est OBLIGATOIRE!";
     }
 
     if ( $success ) {
@@ -146,18 +196,18 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     <h2 id="form" class="form-titre">Formulaire à remplir :</h2>
     <form action="Commande.php" method="POST">
         <?php echo "<p class='erreur-champs'>$erreurNomParent</p>" ?>
-        <label for="nomParent">Nom complet du parent</label>
+        <label for="nomParent">Nom complet du parent<span class="asterix"> * </span></label>
         <?php echo "<input type='text' id='nomParent' name='nomParent' value='$nomParent'
                    placeholder='Ex: XXXX XXXXX' 
                    title='Veuillez inscrire votre nom complet, svp'>" ?>
         <br>
         <?php echo "<p class='erreur-champs'>$erreurNomEnfant</p>" ?>
-        <label for="nomEnfant">Nom complet de l'enfant</label>
+        <label for="nomEnfant">Nom complet de l'enfant<span class="asterix"> * </span></label>
         <?php echo "<input type='text' id='nomEnfant' name='nomEnfant' value='$nomEnfant'
                    placeholder='Ex: XXXX XXXXX' 
                    title='Veuillez inscrire le nom complet de votre enfant, svp'>" ?>
         <br>
-        <label for="ageEnfant">Âge de l'enfant</label>
+        <label for="ageEnfant">Âge de l'enfant<span class="asterix"> * </span></label>
         <select id='ageEnfant' name='ageEnfant' title='Veuillez entrez une âge, svp.'>
             <?php echo "<option value='4' selected>Défault (4)</option>";
             for ( $i = 4 ; $i < 13 ; $i++ ) {
@@ -172,29 +222,127 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
         </select>
         <br>
         <?php echo "<p class='erreur-champs'>$erreurEcoleEnfant</p>" ?>
-        <label for="ecoleEnfant">Nom de l'école de l'enfant</label>
+        <label for="ecoleEnfant">Nom de l'école de l'enfant<span class="asterix"> * </span></label>
         <?php echo "<input type='text' id='ecoleEnfant' name='ecoleEnfant' value='$ecoleEnfant'
                placeholder='Ex: École De-la-Rive' title='Veuillez inscrire dans quel école votre enfant est, svp.'>" ?>
         <br>
-        <?php echo "<p class='erreur-champs'>$erreurRepasUn</p>"; ?>
-        <label for="choixRepasLundi">Choix du repas pour les lundi</label>
-        <input type="radio" id='choixRepasLundi' name='choixRepasLundi' title='Veuillez sélectionner un repas, svp.'>
+        <?php
+        echo "<p class='erreur-champs'>$erreurRepasUn</p> 
+            <label for='choixRepasLundi'>Choix du repas pour les lundi<span class='asterix'> * </span></label>
+            <br><br><br> 
+            <span class='titre-repasUn'>Plat numéro 1 : Spaguetti à la viande.</span>
+            <span class='titre-repasDeux'>Plat numéro 2 : Lasagne.</span>
+            <br><br>
+            <p class='titre-repasUn'>Ingrédients : Nouille, sauce tomate, viande haché, parmesan.</p>
+            <p class='titre-repasDeux'>Ingrédients : fromage mozzarella, viande hâché (boeuf), sauce tomate.</p>
+            <div class='container-radios'>
+            <input type='radio' id='choixRepasLundi' name='choixRepasLundi' value='spaguetti' $checkedUn
+            title='Veuillez sélectionner un repas, svp.'>
+            <img id='choixRepasLundi' class='img-repas'
+             src='https://cdn.pixabay.com/photo/2016/06/17/19/11/pasta-1463934_960_720.jpg'
+             alt='spaguetti à la viande avec du pain' title='Spaguetti à la viande.'>
+            <label for='choixRepasLundi2'></label>
+            <input type='radio' id='choixRepasLundi2' name='choixRepasLundi' value='lasagne' $checkedDeux
+            title='Veuillez sélectionner un repas, svp.'>
+            <img class='img-repas' src='https://cdn.pixabay.com/photo/2017/04/30/09/28/lasagna-2272454_960_720.jpg' 
+            alt='lasagne sur un plat' title='Lasagne.'>
+            </div>"; ?>
         <br>
-        <?php echo "<p class='erreur-champs'>$erreurRepasDeux</p>"; ?>
-        <label for="choixRepasMardi">Choix du repas pour les mardi</label>
-        <input type="radio" id='choixRepasMardi' name='choixRepasMardi' title='Veuillez sélectionner un repas, svp.'>
+        <?php
+        echo "<p class='erreur-champs'>$erreurRepasDeux</p> .
+            <label for='choixRepasMardi'>Choix du repas pour les mardi<span class='asterix'> * </span></label>
+            <br><br><br>
+            <span class='titre-repasUn'>Plat numéro 1 : Sandwich au jambon.</span>
+            <span class='titre-repasDeux'>Plat numéro 2 : Pizza.</span>
+            <br><br>
+            <p class='titre-repasUn'>Ingrédients : jambon, fromage suisse, bacon, laitue, tomate, pain blé entier.</p> 
+            <p class='titre-repasDeux'>Ingrédients : pâte, pepperoni, fromage mozzarella, sauce tomate, sel, pain.</p>
+            <div class='container-radios'>
+            <input type='radio' id='choixRepasMardi' name='choixRepasMardi' value='sandwich au jambon' $checkedTrois
+            title='Veuillez sélectionner un repas, svp.'>
+            <img id='choixRepasMardi' class='img-repas'
+            src='https://cdn.pixabay.com/photo/2014/01/15/23/58/sandwich-246154_960_720.jpg'
+            alt='sandwich au jambon avec fromage et des frites.' title='Sandwich au jambon avec fromage.'>
+            <label for='choixRepasMardi2'></label>
+            <input type='radio' id='choixRepasMardi2' name='choixRepasMardi' value='pizza' $checkedQuatre
+            title='Veuillez sélectionner un repas, svp.'>
+            <img id='choixRepasMardi2' class='img-repas'
+            src='https://cdn.pixabay.com/photo/2016/02/04/16/16/pizza-1179404_960_720.jpg'
+            alt='Pizza au peperroni et fromage.' title='Pizza au peperroni et fromage.'>
+            </div>"; ?>
         <br>
-        <?php echo "<p class='erreur-champs'>$erreurRepasTrois</p>"; ?>
-        <label for="choixRepasMercredi">Choix du repas pour les mercredi</label>
-        <input type="radio" id='choixRepasMercredi' name='choixRepasMercredi' title='Veuillez sélectionner un repas, svp.'>
+        <?php
+        echo "<p class='erreur-champs'>$erreurRepasTrois</p>
+            <label for='choixRepasMercredi'>Choix du repas pour les mercredi<span class='asterix'> * </span></label>
+            <br><br><br> 
+            <span class='titre-repasUn'>Plat numéro 1 : Hamburgers.</span>
+            <span class='titre-repasDeux'>Plat numéro 2 : Hot-dogs.</span>
+            <p class='titre-repasUn'>Ingrédients : viande hâché (boeuf), bacon, laitue, tomate, cornichons, onions caramèlisé,
+             pain blé entier, frites.</p> 
+            <p class='titre-repasDeux'>Ingrédients : pain brun, porc, sel.</p>
+            <div class='container-radios'>
+            <input type='radio' id='choixRepasMercredi' name='choixRepasMercredi' value='hamburgers' $checkedCinq
+               title='Veuillez sélectionner un repas, svp.'>
+            <img id='choixRepasMercredi' class='img-repas'
+            src='https://cdn.pixabay.com/photo/2018/05/30/19/18/burger-3442227_960_720.jpg'
+            alt='Hamburger avec bacon, cornichons, laitue et des piments. De plus, il y a des frites sur le côté.' 
+            title='Hamburger avec bacon, cornichons, laitue et des piments.'>
+            <label for='choixRepasMercredi'></label>
+            <input type='radio' id='choixRepasMercredi2' name='choixRepasMercredi' value='hot-dogs' $checkedSix
+             title='Veuillez sélectionner un repas, svp.'>
+             <img id='choixRepasMercredi2' class='img-repas'
+            src='https://cdn.pixabay.com/photo/2012/03/02/11/00/hot-dog-21074_960_720.jpg'
+            alt='Hot-dog avec ketchup et moutarde sur le dessus.' 
+            title='Hot-dog avec ketchup et moutarde sur le dessus.'>
+            </div>" ?>
         <br>
-        <?php echo "<p class='erreur-champs'>$erreurRepasQuatre</p>"; ?>
-        <label for="choixRepasJeudi">Choix du repas pour les jeudi</label>
-        <input type="radio" id='choixRepasJeudi' name='choixRepasJeudi' title='Veuillez sélectionner un repas, svp.'>
+        <?php
+        echo "<p class='erreur-champs'>$erreurRepasQuatre</p>
+            <label for='choixRepasJeudi'>Choix du repas pour les jeudi<span class='asterix'> * </span></label>
+            <br><br><br> 
+            <span class='titre-repasUn'>Plat numéro 1 : Macaroni.</span>
+            <span class='titre-repasDeux'>Plat numéro 2 : Poitrine de poulet.</span>
+            <p class='titre-repasUn'>Ingrédients : pâte, viande hâché (boeuf), épices, sauce tomate.</p> 
+            <p class='titre-repasDeux'>Ingrédients : poulet, sel, poivre, laitue, tomate, cocombres, sauce césar.</p>
+            <div class='container-radios'>
+            <input type='radio' id='choixRepasJeudi' name='choixRepasJeudi' value='macaroni' $checkedSept
+            title='Veuillez sélectionner un repas, svp.'>
+            <img id='choixRepasJeudi' class='img-repas'
+            src='https://cdn.pixabay.com/photo/2016/03/05/20/16/beef-1238729_960_720.jpg'
+            alt='Macaroni à la viande.' 
+            title='Macaroni à la viande.'>
+            <label for='choixRepasJeudi2'></label>
+            <input type='radio' id='choixRepasJeudi2' name='choixRepasJeudi' value='poitrine-de-poulet' $checkedHuit
+            title='Veuillez sélectionner un repas, svp.'>
+            <img id='choixRepasJeudi2' class='img-repas'
+            src='https://cdn.pixabay.com/photo/2017/04/09/12/49/chicken-breast-filet-2215709_960_720.jpg'
+            alt='Poitrine de poulet cuit avec une salade sur le côté.' 
+            title='Poitrine de poulet cuit avec une salade sur le côté.'>
+            </div>"?>
         <br>
-        <?php echo "<p class='erreur-champs'>$erreurRepasCinq</p>"; ?>
-        <label for="choixRepasVendredi">Choix du repas pour les vendredi <span class="asterix"> * </span></label>
-        <input type="radio" id='choixRepasVendredi' name='choixRepasVendredi' title='Veuillez sélectionner un repas, svp.'>
+        <?php
+        echo "<p class='erreur-champs'>$erreurRepasCinq</p>
+        <label for='choixRepasVendredi'>Choix du repas pour les vendredi <span class='asterix'> * </span></label>
+        <br><br><br> 
+        <span class='titre-repasUn'>Plat numéro 1 : Poutine.</span>
+        <span class='titre-repasDeux'>Plat numéro 2 : Wrap au poulet.</span>
+        <p class='titre-repasUn'>Ingrédients : patate frites, sauce, fromage en grains.</p> 
+            <p class='titre-repasDeux'>Ingrédients : pain pita, poulet grillé, onions, tomates, laitue, sauce tatziki.</p>
+        <div class='container-radios'>
+        <input type='radio' id='choixRepasVendredi' name='choixRepasVendredi' value='poutine' $checkedNeuf
+        title='Veuillez sélectionner un repas, svp.'>
+        <img id='choixRepasVendredi' class='img-repas'
+        src='https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/8/29/1/FNM_100111-Poutine-002_s4x3.jpg.rend.hgtvcom.616.462.suffix/1383239551554.jpeg'
+        alt='Poutine québécoise classique.' 
+        title='Poutine québécoise classique.'>       
+        <label for='choixRepasVendredi2'></label>
+        <input type='radio' id='choixRepasVendredi2' name='choixRepasVendredi' value='wrap-au-poulet' $checkedDix
+        title='Veuillez sélectionner un repas, svp.'>
+        <img id='choixRepasVendredi2' class='img-repas'
+        src='https://cdn.pixabay.com/photo/2016/02/11/22/14/wrap-1194729_960_720.jpg'
+        alt='Wrap au poulet avec laitue, tomates, onions et sauce tatziki.' 
+        title='Wrap au poulet avec laitue, tomates, onions et sauce tatziki.'>        
+        </div>"?>
         <br>
         <label for="envoyer"></label>
         <?php echo "<input type='submit' id='envoyer' value='Envoyer' formaction='Commande.php#form'><br><br>" . $message ?>
@@ -209,7 +357,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
         <li><a href="#top">Revenir au début de page</a></li>
         <li><a href="#description">Revenir à la description</a></li>
         <li><a href="#form">Revenir au début de formulaire</a></li>
-        <li>&copy; Copyright 2020 Lunch Ecolier&trade; All Rights Reserved</li>
+        <li>&copy; Copyright 2020 Lunch Écolier&trade; All Rights Reserved</li>
     </ul>
 </footer>
 </body>
