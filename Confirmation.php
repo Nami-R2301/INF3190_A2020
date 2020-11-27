@@ -37,7 +37,12 @@
             . "!" . !"Nous vous assurons que votre commande sera évalué le plus rapidement
             possible."; ?>
     </h1>
-    <p class="remerciements"> De la part de toute l'équipe de Nami's Fix, nous vous remercions chaleureusement de
+    <h3 class="remerciements">
+        <?php echo "Commande éffectué :\nLundi : " . $_GET["lundi"] . "\nMardi : " . $_GET["mardi"]
+            . "\nMercredi : ". $_GET["mercredi"] . "\nJeudi : " . $_GET["jeudi"] . "\nVendredi : "
+            . $_GET["vendredi"] . "\n\n"?>
+    </h3>
+    <p class="remerciements"> De la part de toute l'équipe de Lunch Écolier, nous vous remercions chaleureusement de
         votre lecture et
         demande, si vous en avez envoyé une ou plusieurs! Nous espérons que vous serez satisfait de nos services.
         À la prochaine!</p>

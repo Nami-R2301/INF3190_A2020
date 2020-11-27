@@ -133,7 +133,8 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
         $fichier = fopen( "demandeRepas.txt", "a" );
         fwrite( $fichier, $log );
         fclose( $fichier );
-        header( "Location: confirmation.php?nomEnfant={$nomEnfant}&nomParent={$nomParent}", true, 303 );
+        header( "Location: confirmation.php?nomEnfant={$nomEnfant}&nomParent={$nomParent}&age={$ageEnfant}&ecole={$ecoleEnfant}&lundi={$choixRepasLundi}&mardi={$choixRepasMardi}&mercredi={$choixRepasMercredi}&jeudi={$choixRepasJeudi}&vendredi={$choixRepasVendredi}",
+            true, 303 );
         exit;
     }
 } ?>

@@ -1,0 +1,4 @@
+Parent: Nami, Enfant: Reghbati, Age: 10, Ecole LPP, Lundi: spaguetti, Mardi: pizza, Mercredi: hamburgers, Jeudi: macaroni, Vendredi: wrap-au-poulet.
+Parent: Nami, Enfant: Reghbati, Age: 10, Ecole LPP, Lundi: spaguetti, Mardi: pizza, Mercredi: hamburgers, Jeudi: macaroni, Vendredi: wrap-au-poulet.
+Parent: Nami, Enfant: Reghbati, Age: 6, Ecole LPP, Lundi: spaguetti, Mardi: pizza, Mercredi: hamburgers, Jeudi: poitrine-de-poulet, Vendredi: poutine.
+Parent: Nami, Enfant: Reghbati, Age: 10, Ecole LPP, Lundi: spaguetti, Mardi: pizza, Mercredi: hamburgers, Jeudi: poitrine-de-poulet, Vendredi: poutine.
