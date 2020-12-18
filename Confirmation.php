@@ -3,21 +3,20 @@
 <head>
     <title>Demande envoyée!</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style-main.css">
+    <link rel="stylesheet" href="style-confirmation.css">
+    <link rel="icon" href="favicon-32x32.png">
 </head>
 <body>
 <nav>
     <ul class="menu">
         <li><a href="Index.html" title="Visitez la page principale pour consulter les mis à jours">Page principale</a>
         </li>
-        <li><a href="About-us.html" title="En savoir plus sur le site et les services données">
-                À propos de nous</a></li>
-        <li><a href="Processus-de-reparation.html" title="Allez vers la page qui informe comment utilisé les services">
-                Processus de réparation</a></li>
-        <li><a href="Contact-us.html" title="Contactez-nous en cliquant sur ce lien">Contactez nous</a></li>
-        <li><a href="Formulaire.php"
+        <li><a href="Informations.html" title="En savoir plus sur le site et les services données">
+                Informations</a></li>
+        <li><a href="Contact.html" title="Contactez-nous en cliquant sur ce lien">Contact</a></li>
+        <li><a href="form-adoption.php"
                title="Faire une demande de remboursement ou faire une requête d'un nouveau service">
-                Requêtes/Plaintes</a></li>
+                Commande</a></li>
         <li><a class="logo" href="https://github.com/Nami-R2301?tab=repositories"
                target="_blank"
                title="Cliquez ici pour consulté/contribué à la création du site web">
@@ -34,10 +33,16 @@
     <div class="right-bg"></div>
     <div class="left-bg"></div>
     <h1>
-        <?php echo "Merci infiniement de votre soutien " . $_GET["prenom"] . " " . $_GET["nom"] . "!" . !"Nous vous assurons que votre formulaire sera évalué le plus rapidement
+        <?php echo "Merci infiniement de votre soutien " . $_GET["nomParent"]
+            . "!" . !"Nous vous assurons que votre commande sera évalué le plus rapidement
             possible."; ?>
     </h1>
-    <p class="remerciements"> De la part de toute l'équipe de Nami's Fix, nous vous remercions chaleureusement de
+    <h3 class="remerciements">
+        <?php echo "Commande éffectué :\nLundi : " . $_GET["lundi"] . "\nMardi : " . $_GET["mardi"]
+            . "\nMercredi : ". $_GET["mercredi"] . "\nJeudi : " . $_GET["jeudi"] . "\nVendredi : "
+            . $_GET["vendredi"] . "\n\n"?>
+    </h3>
+    <p class="remerciements"> De la part de toute l'équipe de Lunch Écolier, nous vous remercions chaleureusement de
         votre lecture et
         demande, si vous en avez envoyé une ou plusieurs! Nous espérons que vous serez satisfait de nos services.
         À la prochaine!</p>
