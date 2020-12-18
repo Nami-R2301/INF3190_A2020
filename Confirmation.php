@@ -14,7 +14,7 @@
         <li><a href="Informations.html" title="En savoir plus sur le site et les services données">
                 Informations</a></li>
         <li><a href="Contact.html" title="Contactez-nous en cliquant sur ce lien">Contact</a></li>
-        <li><a href="form-adoption.php"
+        <li><a href="form-adoption.html"
                title="Faire une demande de remboursement ou faire une requête d'un nouveau service">
                 Commande</a></li>
         <li><a class="logo" href="https://github.com/Nami-R2301?tab=repositories"

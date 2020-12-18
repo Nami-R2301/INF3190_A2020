@@ -1,9 +1,10 @@
 $(function validateFrom () {
     $("form[name='form']").validate( {
-        nomParent: "required",
-        nomEnfant: "required",
-        age: {
-            age: true
+        nomAnimal: "required",
+        typeAnimal: "required",
+        ageAnimal: {
+            required: true,
+            ageAnimal: true
         },
         ecoleEnfant: {
             required: true,
@@ -12,8 +13,3 @@ $(function validateFrom () {
 
     })
 });
-
-function main() {
-    const form = document.querySelector('form');
-    const data = new FormData(form);
-}

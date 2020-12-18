@@ -90,7 +90,7 @@ h1, h2, h3, h4 {
     margin-top: 5%;
     text-align: center;
     font-weight: bold;
-    font-size: 140%;
+    font-size: 130%;
     font-family: "Candara Light", Cambria, serif;
 }
 
@@ -99,7 +99,7 @@ h1, h2, h3, h4 {
     max-width: 70%;
     margin-left: 17%;
     text-align: left;
-    font-size: 115%;
+    font-size: 110%;
     font-weight: initial;
     letter-spacing: 1px;
     line-height: 150%;
@@ -121,32 +121,56 @@ h1, h2, h3, h4 {
 
 form {
     position: relative;
-    width: 60%;
+    width: 80%;
     margin-left: 20%;
     text-align: inherit;
     font-weight: initial;
     letter-spacing: 1px;
 }
 
-form img {
-    float: right;
-    position: relative;
-    width: 40%;
-    margin: 0 5%;
-    overflow: auto;
+label {
+    margin: 2% 0.5% 2% 0;
+}
 
+label::before {
+    content: "\a";
+    white-space: pre;
 }
 
 input[type=text] {
     display: inline-block;
-    width: 30%;
-    margin: 2% 1%;
+    width: 35%;
+    margin: 2% 0 2% 0;
     padding: 0.3%;
     text-align: left;
     border: 1px solid white;
     border-radius: 5px;
     color: white;
     background-color: #0d0c0c;
+}
+input[type=text]::after {
+    content: "\a";
+    white-space: pre;
+}
+
+#nomAnimal {
+    width: 20%;
+}
+
+#typeAnimal {
+    width: 11%;
+}
+
+#race {
+    width: 15%;
+}
+
+#ageAnimal {
+    width: 8%
+}
+
+#courrielProp {
+    width: 20%
 }
 
 .erreur-champs {
@@ -157,10 +181,6 @@ input[type=text] {
     color: orangered;
 }
 
-select {
-    margin: 2% 1%;
-}
-
 .asterix {
     position: relative;
     margin-left: 1%;
@@ -169,7 +189,7 @@ select {
 
 input[type=submit] {
     width: 15%;
-    margin: 5% 0 2% 45%;
+    margin: 5% 0 2% 30%;
     padding: 1%;
     border: none;
     border-radius: 4px;
@@ -192,43 +212,6 @@ span {
     height: 15%;
     margin: 5% 0 10% 20%;
     font-size: 115%;
-}
-
-.titre-repasUn {
-    float: left;
-    width: 30%;
-    display: initial;
-    margin: 2% 0 0 9%;
-    font-size: 100%;
-    text-align: center;
-}
-
-.titre-repasDeux {
-    float: right;
-    padding-right: 10%;
-    display: initial;
-    width: 30%;
-    margin: 2% 0 1% -5%;
-    font-size: 100%;
-    text-align: center;
-}
-
-input[type=radio] {
-    position: relative;
-    margin: 5% 0;
-}
-
-.container-radios {
-    display: flex;
-    position: relative;
-    width: 100%;
-    margin-bottom: 5%;
-}
-
-.img-repas {
-    float: right;
-    width: 40%;
-    margin: 5% 5% 0 3%;
 }
 
 .remerciements {
