@@ -122,7 +122,7 @@ h1, h2, h3, h4 {
 form {
     position: relative;
     width: 80%;
-    margin-left: 20%;
+    margin-left: 17%;
     text-align: inherit;
     font-weight: initial;
     letter-spacing: 1px;
@@ -149,6 +149,23 @@ input[type=text] {
     background-color: #0d0c0c;
 }
 input[type=text]::after {
+    content: "\a";
+    white-space: pre;
+}
+
+textarea {
+    display: inline-block;
+    width: 35%;
+    margin: 2% 0 2% 0;
+    padding: 0.3%;
+    text-align: left;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    background-color: #0d0c0c;
+}
+
+textarea::after {
     content: "\a";
     white-space: pre;
 }

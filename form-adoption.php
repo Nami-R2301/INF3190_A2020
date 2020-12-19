@@ -5,7 +5,7 @@ $nomAnimal = "";
 $typeAnimal = "";
 $race = "";
 $ageAnimal = "";
-$description = "";
+$descriptionT = "";
 $courrielProp = "";
 $adresseAnimal = "";
 
@@ -16,7 +16,7 @@ $log = "";
 if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 
     if ( !isset( $nomAnimal ) || !isset( $typeAnimal ) || !isset( $race ) || !isset( $ageAnimal )
-        || !isset( $description ) || !isset( $courrielProp ) || !isset( $adresseAnimal ) ) {
+        || !isset( $descriptionT ) || !isset( $courrielProp ) || !isset( $adresseAnimal ) ) {
         http_response_code( 400 );
         exit;
     }
@@ -25,13 +25,13 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     $typeAnimal = $_POST["typeAnimal"];
     $race = $_POST["race"];
     $ageAnimal = intval( $_POST["ageAnimal"] );
-    $description = $_POST["description"];
+    $descriptionT = $_POST["description"];
     $courrielProp = $_POST["courrielProp"];
     $adresseAnimal = $_POST["adresseAnimal"];
 
 
     $log = "Parent: " . $nomAnimal . ", " . "Enfant: " . $typeAnimal . ", " . "Age: " .
-        $description . ", " . "Ecole " . $race . " ," . $courrielProp . " ," . $adresseAnimal . ".\n";
+        $descriptionT . ", " . "Ecole " . $race . " ," . $courrielProp . " ," . $adresseAnimal . ".\n";
 
 
     if ( !empty( $nomAnimal ) && !empty( $typeAnimal ) && !empty( $race ) && !empty( $ageAnimal )
