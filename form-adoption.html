@@ -53,39 +53,46 @@
     <h2 id="form" class="form-titre">Formulaire à remplir :</h2>
 
 
-    <form name="form" action="form-adoption.php" method="POST" onsubmit="return form.submit()">
+    <form name="form" action="form-adoption.php" method="POST" onsubmit="return validateForm()">
 
+        <p id="EnomAnimal"></p>
         <label for="nomAnimal">Nom de l'animal :<span class="asterix"> * </span></label>
         <input type="text" id="nomAnimal" name="nomAnimal"
                title="Veuillez inscrire le nom de votre animal, svp"
                alt="Veuillez inscrire le nom de votre animal dans ce champs, svp">
 
+        <p id="EtypeAnimal"></p>
         <label for="typeAnimal">Le type de votre animal :<span class="asterix"> * </span></label>
         <input type="text" id="typeAnimal" name="typeAnimal"
                title="Veuillez inscrire le nom du type de votre animal, svp"
                alt="Veuillez inscrire le type de votre animal dans ce champs, svp">
 
+        <p id="Erace"></p>
         <label for="race">Race de l'animal :<span class="asterix"> * </span></label>
         <input type="text" id="race" name="race"
                title="Veuillez inscrire le nom la race de votre animal, svp"
                alt="Veuillez inscrire la race de votre animal dans ce champs, svp">
 
+        <p id="EageAnimal"></p>
         <label for="ageAnimal">Âge de l'animal :<span class="asterix"> * </span></label>
         <input type="text" id="ageAnimal" name="ageAnimal" placeholder="0-30"
                title="Veuillez entrez une âge valide, svp."
                alt="Veuillez inscrire l'âge de votre animal dans ce champs, svp">
 
+        <p id="EdescriptionT"></p>
         <label for="descriptionT">Courte description de l'animal :<span class="asterix"> * </span></label>
         <br>
         <textarea id="descriptionT" name="descriptionT"
                title="Veuillez inscrire une courte description décrivant votre animal, svp."
         ></textarea>
 
+        <p id="EcourrielProp"></p>
         <label for="courrielProp">Adresse courriel du/des propriétaire(s) :<span class="asterix"> * </span></label>
         <input type="text" id="courrielProp" name="courrielProp" placeholder="Ex: exemple@gmail.com"
                title="Veuillez inscrire dans votre adresse de messagerie courriel, svp."
                alt="Veuillez inscrire l'adresse de messagerie qui nous permettera de vous contactez dans ce champs, svp">
 
+        <p id="EadresseAnimal"></p>
         <label for="adresseAnimal">Adresse exacte de l'emplacement de l'animal :<span class="asterix"> * </span></label>
         <input type="text" id="adresseAnimal" name="adresseAnimal" placeholder="Ex: 129 Rue St-catherine Montréal J6J6b3."
                title="Veuillez inscrire l'adresse exacte de l'emplacement de l'animal pour la récupération
