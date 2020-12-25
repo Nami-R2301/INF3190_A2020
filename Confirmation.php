@@ -11,9 +11,6 @@
     <ul class="menu">
         <li><a href="Index.html" title="Visitez la page principale pour consulter les mis à jours">Page principale</a>
         </li>
-        <li><a href="Informations.html" title="En savoir plus sur le site et les services données">
-                Informations</a></li>
-        <li><a href="Contact.html" title="Contactez-nous en cliquant sur ce lien">Contact</a></li>
         <li><a href="form-adoption.html"
                title="Faire une demande de remboursement ou faire une requête d'un nouveau service">
                 Commande</a></li>
@@ -33,20 +30,13 @@
     <div class="right-bg"></div>
     <div class="left-bg"></div>
     <h1>
-        <?php echo "Merci infiniement de votre soutien " . $_GET["nomParent"]
-            . "!" . !"Nous vous assurons que votre commande sera évalué le plus rapidement
+        <?php echo "Merci infiniement de votre soutien! Nous saluons " . $_GET["nomAnimal"]
+            . "!" . !"Nous vous assurons que votre " . $_GET["typeAnimal"] . "sera pris en charge le plus rapidement
             possible."; ?>
     </h1>
-    <h3 class="remerciements">
-        <?php echo "Commande éffectué :\nLundi : " . $_GET["lundi"] . "\nMardi : " . $_GET["mardi"]
-            . "\nMercredi : ". $_GET["mercredi"] . "\nJeudi : " . $_GET["jeudi"] . "\nVendredi : "
-            . $_GET["vendredi"] . "\n\n"?>
-    </h3>
-    <p class="remerciements"> De la part de toute l'équipe de Lunch Écolier, nous vous remercions chaleureusement de
-        votre lecture et
-        demande, si vous en avez envoyé une ou plusieurs! Nous espérons que vous serez satisfait de nos services.
-        À la prochaine!</p>
-    <p>Inscription terminée avec succès.</p>
+    <p class="remerciements"> De la part de toute l'équipe de Adopt-me!, nous vous remercions chaleureusement de
+        votre mise en adoption. Nous espérons que vous serez satisfait de nos services. À la prochaine!</p>
+    <p>Requ[ete de mise en adoption terminée avec succès.</p>
     <a class="image-intro" href="https://pixabay.com/photos/thank-you-thanks-card-message-note-515514/"
        title="Remerciement en anglais écrit sur une note à côté d'une enveloppe brune.">
         <img src="https://cdn.pixabay.com/photo/2014/11/03/17/45/thank-you-515514_960_720.jpg"
@@ -54,4 +44,3 @@
 </section>
 </body>
 </html>
-

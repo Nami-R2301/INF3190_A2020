@@ -2,18 +2,26 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Nami's Fix</title>
+    <title>Adopt-me!</title>
     <link href="style-main.css" rel="stylesheet">
+    <script src="consultation.js"></script>
 </head>
 <body id="top">
 <nav>
     <ul class="menu">
-        <li><a href="Index.html" title="Visitez la page principale pour consulter les mis à jours">Consultation</a>
+        <li><a href="Index.html" title="Visitez la page principale pour consulter les animaux disponibles">Consultation</a>
         </li>
-        <li><a href="Contact-us.html" title="Contactez-nous en cliquant sur ce lien">Contactez nous</a></li>
         <li><a href="form-adoption.html"
-               title="Faire une demande de remboursement ou faire une requête d'un nouveau service">
+               title="Faire un ajout dans notre liste d'animaux adoptifs.">
             Mise en adoption</a></li>
+        <li>
+        <form action="search.php" method="POST">
+            <label for="search">Recherche:</label>
+            <input type="text" id="search" name="search">
+            <label for="envoyer"></label>
+            <input type="submit" id="envoyer" value="Valider">
+        </form>
+        </li>
         <li><a class="logo" href="https://github.com/Nami-R2301/INF3190_A2020"
                target="_blank"
                title="Cliquez ici pour consulté/contribué à la création du site web">
@@ -29,83 +37,33 @@
 <section class="main">
     <div class="right-bg"></div>
     <div class="left-bg"></div>
-    <a href="https://pixabay.com/photos/laptop-mouse-stethoscope-notebook-1385702/"
+    <a href="https://pixabay.com/fr/photos/animaux-de-compagnie-mignon-cat-3715733/"
        target="_blank" title="Cliquez ici pour télécharger l'image">
-        <img alt="Un ordinateur portable accompagné d'une souri logitec noir sur le côté avec
-             un stéthoscope sur le dessus en plus d'être entouré de papier écrasé." class="image-intro"
-             src="https://cdn.pixabay.com/photo/2016/05/11/13/20/laptop-1385702_960_720.jpg"></a>
-    <h1 id="description">Nami's Fix: Qu'est-ce que c'est?</h1>
+        <img alt="Pleins de chats et chien en train de pôsé un à côté de l'autre avec un arrière plan rose." class="image-intro"
+             src="https://cdn.pixabay.com/photo/2018/10/01/09/21/pets-3715733_960_720.jpg"></a>
+    <h1 id="description"></h1>
     <section class="description">
-        <a href="https://pixabay.com/photos/service-computers-repair-428540/"
+        <a href="https://pixabay.com/fr/photos/cygne-cygne-b%C3%A9b%C3%A9s-b%C3%A9b%C3%A9s-cygnes-2494925/"
            target="_blank" title="Cliquez ici pour télécharger l'image">
-            <img alt="quelq'un qui répare les composants d'une carte mère d'un ordinateur."
+            <img alt="Une maman cygne avec ces petits dans un lac."
                  class="image-description-right"
-                 src="https://cdn.pixabay.com/photo/2014/08/26/21/27/service-428540_960_720.jpg"></a>
+                 src="https://cdn.pixabay.com/photo/2017/07/11/20/31/swan-2494925_960_720.jpg"></a>
         <p>
-            Ce site web à été conçu pour ceux qui cherche à réparer leur composants électroniques! Plus spécifiquement,
-            Nami's Fixest un service de réparation offert pour ceux qui désirent changer, remplacer, maintenir leur
-            composants électronique d'ordinateurs. Rendez-vous dans la section <a class="lien-textuel"
-                                                                                  href="Processus-de-reparation.html">
-            'Processus de réparation'</a>
-            pour commencer votre demande! Si vous avez des questions à propos des procédures de livraison et
-            réparation, n'hésitez-pas à nous envoyez un <a class="lien-textuel-mail"
-                                                           href="Contact-us.html#formatDuCourriel">courriel</a>.
-            *Pour plus d'informations concernant nos termes et conditions visitez la section <a class="lien-textuel"
-                                                                                                href="About-us.html">'À
-            propos de nous'</a>.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu f
+            ugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+            mollit anim id est laborum.
         </p>
     </section>
     <section class="updates" id="updates">
-        <h2>Mise à jour(25/10/2020)</h2>
+        <h2 id="animals">Cinq de nos animaux disponibles (21/12/2020) : </h2>
+        <section class="affichage">
+            <ul id="animaux-dispo">
+            </ul>
+        </section>
         <br>
         <br>
-        <p>
-            Nous offrons maintenant des services de nettoyage et de maintenance d'ordinateurs
-            pour pouvoir réanimer vos anciens ordinateurs qui pourraient vous sauvez du temps
-            ET de l'argent, surtout dans ces temps dûr de pandémie que nous faisons face ces temps-ci**.
-            Voici les nouveaux services en place pour répondre à la demande croissante depuis la pandémie :
-        </p>
-        <a href="https://pixabay.com/photos/corona-coronavirus-virus-covid-19-4983590/"
-           target="_blank" title="Cliquez ici pour téléchargé l'image."><img
-                alt="Une femme portant un masque qui navigue sur l'internet avec son ordinateur portable dans le noir."
-                src="https://cdn.pixabay.com/photo/2020/03/30/09/15/corona-4983590_960_720.jpg"></a>
-        <ul>
-            <li>Aide en ligne : Connectez-vous avec un agent sur Skype ou Zoom pour vous dépanner de vos questions!</li>
-            <li>Livraison gratuite pour la majorité des régions de l'Amérique du nord** pour contribué aux client qui
-                sont en besoin d'un ordinateur et/ou d'accessoires performant et fonctionnel pour leurs station de
-                travail cette année.
-            </li>
-        </ul>
-        <p>**Les tarifs pour les services de nettoyage peuvent variés selon la propagation du Covid-19.
-            Pour plus d'informations concernant les tarifs et les nouveaux services, cliquez sur ce <a
-                    class="lien-textuel"
-                    href="Processus-de-reparation.html">
-                lien</a></p>
-    </section>
-    <br>
-    <br>
-    <h3>INFO concernant les mesures prises pour les méthodes de livraison pour réparations
-        standards : </h3>
-    <section class="covid-container">
-        <a href="https://www.downtowncomputer.bc.ca/wp-content/uploads/2019/01/repair-services.jpg"
-           target="_blank" title="Cliquez ici pour télécharger l'image">
-            <img alt="Deux clés anglaise, dont une qui à 'service' gravé sur le dessus et un tourne-vis sur un clavier
-                  avec touches mince en noir."
-                 src="https://www.downtowncomputer.bc.ca/wp-content/uploads/2019/01/repair-services.jpg"></a>
-        <p>Suite à la pandémie et les difficultés que celle-ci à engendré, nous avons mis à jours deux de nos termes :
-            <br>
-        <ol>
-            <li>Nos tarifs pour la réparation ont augmentés de 3.25%.**
-            <li>Le seuil minimum pour les tarifs est maintenant à 12.99$(CAD).
-        </ol>
-        <br>
-        **Seulement les tarifs de mains d'oeuvres sont augmenté. De plus, les tarifs de livraisons ont grandement
-        diminué, suite à la pandémie pour offrir de l'aide pour ceux qui ont besoin d'une station de travail
-        fonctionnelle au plus vite pour leurs travail et/ou école.<br>
-        *Pour plus d'informations, veuillez visiter la section <a class="lien-textuel"
-                                                                  href="Processus-de-reparation.html">Processus de
-        réparation</a>
-        dans la barre de navigation
     </section>
 </section>
 <footer>
